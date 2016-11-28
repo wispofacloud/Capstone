@@ -10,11 +10,10 @@ namespace Capstone.Web.Controllers
     public class BookController : Controller
     {
         // GET: Book
-        public ActionResult SearchResults()
+        public ActionResult SearchResults(SearchResultModel model)
         {
             ViewBag.SearchCriteria = searchCriteria;
-            List<BookModel> listBooks = new List<BookModel>();
-            return View("SearchResults", listBooks);
+            return View("SearchResults", model);
         }
 
         //GET: Detail of chosen book
