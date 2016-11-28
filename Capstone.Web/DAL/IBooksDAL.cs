@@ -9,10 +9,7 @@ namespace Capstone.Web.Models
 {
     public interface IBooksDAL
     {
-        List<BookModel> GetBooksByAuthor(string author);
-        List<BookModel> GetBooksByTitle(string title);
-        List<BookModel> GetBooksBySetting(string setting);
-        List<BookModel> GetBooksByCharacter(string character);
-        List<BookModel> GetBooksByKeyword(string keyword);
+        List<BookModel> GetBooks(string value, string type);
+        //List<BookModel> GetBooksByKeyword(string keyword);
     }
 }

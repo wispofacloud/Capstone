@@ -8,13 +8,13 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/styles.css" rel="stylesheet" />
-    <title>_Layout</title>
+    <title>@ViewBag.Title</title>
 </head>
 <body>
     <header></header>
     <nav>
         
-       
+        @Html.Partial("_PartialSearchView", new Capstone.Web.Models.SearchResultModel())
         <ul>
             @*<li>@Html.ActionLink("Home", </li>*@
 

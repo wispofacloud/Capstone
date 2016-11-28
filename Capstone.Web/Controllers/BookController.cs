@@ -9,9 +9,30 @@ namespace Capstone.Web.Controllers
 {
     public class BookController : Controller
     {
+        private IBooksDAL booksDAL;
+
+        public BookController(IBooksDAL booksDAL)
+        {
+            this.booksDAL = booksDAL;
+        }
+
+        //GET: Book Search
+        public List<SelectListItem> searchCriteria = new List<SelectListItem>()
+        {
+            new SelectListItem() {Text = "Title" },
+            new SelectListItem() {Text = "Author" },
+            new SelectListItem() {Text = "Setting" },
+            new SelectListItem() {Text = "Character" },
+            //new SelectListItem() {Text = "Keyword" }
+
+        };
+
         // GET: Book
         public ActionResult SearchResults(SearchResultModel model)
         {
+            var value = model.SearchValue;
+            var type = model.SearchType;
+            booksDAL.GetBooks(value, type);
             ViewBag.SearchCriteria = searchCriteria;
             return View("SearchResults", model);
         }
@@ -22,16 +43,7 @@ namespace Capstone.Web.Controllers
             BookModel model = new BookModel();
             return View("BookDetail", model);
         }
-        //GET: Book Search
-        public List<SelectListItem> searchCriteria = new List<SelectListItem>()
-        {
-            new SelectListItem() {Text = "Title" },
-            new SelectListItem() {Text = "Author" },
-            new SelectListItem() {Text = "Setting" },
-            new SelectListItem() {Text = "Character" },
-            new SelectListItem() {Text = "Keyword" }
 
-        };
 
       
     }
