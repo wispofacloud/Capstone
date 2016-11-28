@@ -12,6 +12,7 @@ namespace Capstone.Web.Controllers
         // GET: Book
         public ActionResult SearchResults()
         {
+            ViewBag.SearchCriteria = searchCriteria;
             List<BookModel> listBooks = new List<BookModel>();
             return View("SearchResults", listBooks);
         }
@@ -22,5 +23,15 @@ namespace Capstone.Web.Controllers
             BookModel model = new BookModel();
             return View("BookDetail", model);
         }
+        //GET: Book Search
+        public List<SelectListItem> searchCriteria = new List<SelectListItem>()
+        {
+            new SelectListItem() {Text = "Title" },
+            new SelectListItem() {Text = "Author" },
+            new SelectListItem() {Text = "Setting" },
+            new SelectListItem() {Text = "Keyword" }
+        };
+
+      
     }
 }

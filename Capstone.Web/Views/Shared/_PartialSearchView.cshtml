@@ -1,0 +1,5 @@
+﻿@model Capstone.Web.Models.BookModel
+@using (Html.BeginForm("", "", FormMethod.Get))
+{
+    @Html.DropDownListFor(b => b.Books, (IEnumerable<SelectListItem>)ViewBag.SearchCriteria)
+}
