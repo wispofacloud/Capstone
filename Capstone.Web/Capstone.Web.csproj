@@ -140,6 +140,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\BooksSqlDAL.cs" />
     <Compile Include="DAL\IBooksDAL.cs" />
+    <Compile Include="Models\SearchResultModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

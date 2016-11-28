@@ -29,7 +29,9 @@ namespace Capstone.Web.Controllers
             new SelectListItem() {Text = "Title" },
             new SelectListItem() {Text = "Author" },
             new SelectListItem() {Text = "Setting" },
+            new SelectListItem() {Text = "Character" },
             new SelectListItem() {Text = "Keyword" }
+
         };
 
       
