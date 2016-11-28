@@ -7,6 +7,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
     <title>_Layout</title>
 </head>
 <body>
@@ -15,15 +16,18 @@
         
        
         <ul>
-            <li>@Html.ActionLink("Home", </li>
+            @*<li>@Html.ActionLink("Home", </li>*@
 
 
         </ul>
        
     </nav>
 
-    <div> 
-        @RenderBody()
+    <div>
+        
+
+            @RenderBody()
+       
     </div>
 </body>
 </html>
