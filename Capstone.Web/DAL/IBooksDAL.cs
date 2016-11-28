@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Capstone.Web.DAL
+namespace Capstone.Web.Models
 {
     public interface IBooksDAL
     {
-        List<BookModel> GetBooksByAuthor();
-        List<BookModel> GetBooksByTitle();
-        List<BookModel> GetBooksBySetting();
-        List<BookModel> GetBooksByCharacter();
-        List<BookModel> GetBooksByKeyword();
+        List<BookModel> GetBooksByAuthor(string author);
+        List<BookModel> GetBooksByTitle(string title);
+        List<BookModel> GetBooksBySetting(string setting);
+        List<BookModel> GetBooksByCharacter(string character);
+        List<BookModel> GetBooksByKeyword(string keyword);
     }
 }
