@@ -56,6 +56,7 @@ li{
 }
 .detailImg{
     display:inline-block;
+    box-shadow:40px;
 }
 .detailDiv{
     display:inline-block;
