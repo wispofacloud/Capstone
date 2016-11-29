@@ -32,7 +32,7 @@ namespace Capstone.Web.Controllers
         {
             var value = model.SearchValue;
             var type = model.SearchType;
-            booksDAL.GetBooks(value, type);
+            model.Results = booksDAL.GetBooks(value, type);
             ViewBag.SearchCriteria = searchCriteria;
             return View("SearchResults", model);
         }
