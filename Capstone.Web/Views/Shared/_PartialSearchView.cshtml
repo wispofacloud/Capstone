@@ -1,7 +1,7 @@
 ﻿@model Capstone.Web.Models.SearchResultModel
 @using (Html.BeginForm("SearchResults", "Book", FormMethod.Get))
 {
-    @Html.Label("SearchType", "Search Type")
+    @Html.Label("SearchType", "Search")
     @Html.DropDownListFor(m => m.SearchType, (IEnumerable<SelectListItem>)Model.SearchCriteriaOptions)
 
     @Html.TextBoxFor(m => m.SearchValue)

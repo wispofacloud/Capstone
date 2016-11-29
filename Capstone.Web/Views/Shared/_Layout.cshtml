@@ -8,17 +8,21 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <header></header>
-    <nav id="navBar">
+    <nav id="navBar" class="navbar navbar-default">
         
-        @Html.Partial("_PartialSearchView", new Capstone.Web.Models.SearchResultModel())
-        <ul id="menuLinks">
-            @*<li>@Html.ActionLink("Home", </li>*@
+        
+        <ul id="menuLinks" class="nav navbar-nav">
+            <li>@Html.ActionLink("Home", "Index")</li>
 
 
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.Partial("_PartialSearchView", new Capstone.Web.Models.SearchResultModel())</li>
         </ul>
        
     </nav>
