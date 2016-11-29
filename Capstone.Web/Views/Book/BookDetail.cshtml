@@ -10,11 +10,11 @@
     <div class="detailImg">
         <img src="@Model.ImageLink"/>
     </div>
-    <div class="detailDesc">
-        <h2>@Model.Title</h2>
-        <h3>@Model.Author</h3>
-        <p>Join @Model.MainCharacter in @Model.Setting for a @Model.Genre adventure!</p>
-        <p>@Model.Description</p>
+    <div class="detailDiv">
+        <h2 class="detailTitle">@Model.Title</h2>
+        <h3 class="detailAuthor">@Model.Author</h3>
+        <p class="detailTagLine">Join @Model.MainCharacter in @Model.Setting for a @Model.Genre adventure!</p>
+        <p class="detailDescription">@Model.Description</p>
         @if ((@Model.DateAdded.CompareTo(DateTime.Now)) < 30)
         {
             <h2 id="red">NEW!</h2>

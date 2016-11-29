@@ -5,23 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
+
     @foreach (var item in Model.Results)
-    {
-        <div id="searchResultListItem">
+    {<div class="blockForList">
+
+
             <img src="@item.ImageLink" alt="Picture of Cover" />
-            <ul>
 
-                <li>@Html.ActionLink(@item.Title, "BookDetail", "Book", new { bookID = item.BookID }, null)</li>
-                <li>@item.Author</li>
+        <div id="searchResultListItem">
+          
+
+                @Html.ActionLink(@item.Title, "BookDetail", "Book", new { bookID = item.BookID }, null)
+                @item.Author
 
 
-            </ul>
+         
 
         </div>
+    </div>
     }
-
-</div>
 
 
 

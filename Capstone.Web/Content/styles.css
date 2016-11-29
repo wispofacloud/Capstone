@@ -1,35 +1,51 @@
-﻿body {
+﻿#navBar{
+
+}
+#menuLinks{
+
+}
+body {
     background-attachment: fixed;
     background-image: url('seamless_paper_texture.png');
 }
 .mainDiv{
     background-color: lightsteelblue;
     min-height:450px;
-    width: 85%;    
+    width: 85%;   
     border-radius: 5px;
     text-align:center;
     margin:auto;
 }
 
 h2{
-    text-align:center;
+    
 }
 #red{
     color:red;
 }
 h3{
-    text-align:center;
+    
 }
 p{
-    text-align:center;
+    
+}
+.blockForList{
+    display:block;
+   
+}
+.searchResultCoverImage{
+    display: inline-block;
+    width:100px;
+    background-color: white;
+    border-radius: 3px;
+    margin-right: 1%;
 }
 .searchResultListItem{
-   
+   display: inline-block;
     border: 2px double black;
     border-collapse:collapse;
-    border-radius: 2px;
-    margin:auto;    
-    width:40em;
+    border-radius: 3px;       
+    width:100px;
 
 }
 li{
@@ -38,6 +54,20 @@ li{
 .detailImg{
     display:inline-block;
 }
-.detailDesc{
+.detailDiv{
     display:inline-block;
 }
+.detailTitle{
+
+}
+.detailAuthor{
+
+}
+.detailTagLine{
+
+}
+.detailDescription{
+
+}
+
+
