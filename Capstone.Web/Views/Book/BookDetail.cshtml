@@ -1,0 +1,18 @@
+﻿@model Capstone.Web.Models.BookModel
+@{
+    ViewBag.Title = "BookDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="container">
+    <h2>@Model.Title</h2>
+    <h3>@Model.Author</h3>
+    <p>Join @Model.MainCharacter in @Model.Setting for a @Model.Genre adventure!</p>
+    @if((@Model.DateAdded.CompareTo(DateTime.Now)) < 30)
+    {
+        <h2 id="red">NEW!</h2>
+    }
+
+</div>
