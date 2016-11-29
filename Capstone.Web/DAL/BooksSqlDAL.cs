@@ -21,10 +21,10 @@ namespace Capstone.Web.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string sql = "Select * from books where {0} = @value";
+                    string sql = "Select * from books where {0} like '%{1}%'";
                     sql = sql.Replace("{0}", type);
+                    sql = sql.Replace("{1}", value);
                     SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@value", value);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
