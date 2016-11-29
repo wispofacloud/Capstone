@@ -11,7 +11,7 @@ namespace Capstone.Web.Models
     public class BooksSqlDAL : IBooksDAL
     {
         private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["EchoBooks"].ConnectionString;
-       
+
 
         public List<BookModel> GetBooks(string value, string type)
         {
@@ -37,8 +37,45 @@ namespace Capstone.Web.Models
                             MainCharacter = Convert.ToString(reader["mainCharacter"]),
                             Setting = Convert.ToString(reader["setting"]),
                             Genre = Convert.ToString(reader["genre"]),
-                            DateAdded = Convert.ToDateTime(reader["dateAdded"])
-                        });
+                            DateAdded = Convert.ToDateTime(reader["dateAdded"]),
+                            ImageLink = Convert.ToString(reader["imageLink"])
+                    });
+                    }
+                }
+
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return output;
+        }
+
+        public BookModel GetBooksById(int bookId)
+        {
+            BookModel output = new BookModel();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string sql = "Select * from books where bookId = @bookId";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@bookId", bookId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        output.BookID = Convert.ToInt32(reader["bookID"]);
+                        output.Title = Convert.ToString(reader["title"]);
+                        output.Author = Convert.ToString(reader["author"]);
+                        output.MainCharacter = Convert.ToString(reader["mainCharacter"]);
+                        output.Setting = Convert.ToString(reader["setting"]);
+                        output.Genre = Convert.ToString(reader["genre"]);
+                        output.DateAdded = Convert.ToDateTime(reader["dateAdded"]);
+                        output.Description = Convert.ToString(reader["description"]);
+                        output.ImageLink = Convert.ToString(reader["imageLink"]);
+
                     }
                 }
 

@@ -40,8 +40,9 @@ namespace Capstone.Web.Controllers
         //GET: Detail of chosen book
         public ActionResult BookDetail(int bookID)
         {
-            BookModel model = new BookModel();
-            return View("BookDetail", model);
+            BookModel book = new BookModel();
+            book = booksDAL.GetBooksById(bookID);
+            return View("BookDetail", book);
         }
 
 

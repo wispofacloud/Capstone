@@ -14,6 +14,8 @@ namespace Capstone.Web.Models
         public string Setting { get; set; }
         public string Genre { get; set; }
         public DateTime DateAdded { get; set; }
+        public string Description { get; set; }
+        public string ImageLink { get; set; }
 
 
 
