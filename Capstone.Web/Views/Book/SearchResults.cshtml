@@ -6,24 +6,24 @@
 }
 
 
-    @foreach (var item in Model.Results)
-    {<div class="blockForList">
+@foreach (var item in Model.Results)
+{<div class="blockForList">
 
 
-            <img src="@item.ImageLink" alt="Picture of Cover" />
+        <img class="searchResultCoverImage" src="@item.ImageLink" alt="Picture of Cover" />
 
-        <div id="searchResultListItem">
-          
-
-                @Html.ActionLink(@item.Title, "BookDetail", "Book", new { bookID = item.BookID }, null)
-                @item.Author
+        <div class="searchResultListItem">
 
 
-         
+            <span class="title">Title: @Html.ActionLink(@item.Title, "BookDetail", "Book", new { bookID = item.BookID }, null)<br /></span>
+            <span>Author: @item.Author</span>
+
+
+
 
         </div>
     </div>
-    }
+}
 
 
 

@@ -31,21 +31,24 @@ p{
 }
 .blockForList{
     display:block;
+    width:100%;
    
 }
 .searchResultCoverImage{
     display: inline-block;
-    width:100px;
-    background-color: white;
+    width:10%;
+    background-color: green;
     border-radius: 3px;
     margin-right: 1%;
 }
 .searchResultListItem{
    display: inline-block;
-    border: 2px double black;
-    border-collapse:collapse;
-    border-radius: 3px;       
-    width:100px;
+   text-align:left;
+    width:50%;
+
+
+}
+.title{
 
 }
 li{
