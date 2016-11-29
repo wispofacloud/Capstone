@@ -9,9 +9,9 @@ namespace Capstone.Web.Models
     public class UserModel
     {
         public int UserID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You are required to enter your username")]
         public string Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You are required to enter your password")]
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
     }
