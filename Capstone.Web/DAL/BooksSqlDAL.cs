@@ -11,11 +11,7 @@ namespace Capstone.Web.Models
     public class BooksSqlDAL : IBooksDAL
     {
         private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["EchoBooks"].ConnectionString;
-
-        public BooksSqlDAL(string ConnectionString)
-        {
-            this.ConnectionString = ConnectionString;
-        }
+       
 
         public List<BookModel> GetBooks(string value, string type)
         {

@@ -11,7 +11,7 @@ namespace Capstone.Web.Models
     {
         public string SearchType { get; set; }
         public string SearchValue { get; set; }
-        public List<BookModel> Results { get; set; }
+        public List<BookModel> Results { get; set; } = new List<BookModel>();
         public IEnumerable<SelectListItem> SearchCriteria { get; set; }
 
         public List<SelectListItem> SearchCriteriaOptions = new List<SelectListItem>()
