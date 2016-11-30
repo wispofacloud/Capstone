@@ -14,5 +14,6 @@ namespace Capstone.Web.Models
         [Required(ErrorMessage = "You are required to enter your password")]
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
+        public string Salt { get; set; }
     }
 }
