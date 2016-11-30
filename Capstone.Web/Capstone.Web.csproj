@@ -147,9 +147,14 @@
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\BooksSqlDAL.cs" />
     <Compile Include="DAL\IBooksDAL.cs" />
+<<<<<<< HEAD
     <Compile Include="DAL\IUsersDAL.cs" />
     <Compile Include="DAL\UsersSqlDAL.cs" />
     <Compile Include="Models\NewUserViewModel.cs" />
+=======
+    <Compile Include="Models\AwardsModel.cs" />
+    <Compile Include="Models\OpinionModel.cs" />
+>>>>>>> 55e555e0ce28c2f25b0bb1286c4b82995390cd6b
     <Compile Include="Models\SearchResultModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
