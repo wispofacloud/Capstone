@@ -100,7 +100,7 @@ namespace Capstone.Web.Models
             return output;
         }
 
-        public bool AddNewBook(BookModel newBook)
+        public BookModel AddNewBook(BookModel newBook)
         {
             try
             {
@@ -114,27 +114,23 @@ namespace Capstone.Web.Models
                     cmd.Parameters.AddWithValue("@mainCharacter", newBook.MainCharacter);
                     cmd.Parameters.AddWithValue("@setting", newBook.Setting);
                     cmd.Parameters.AddWithValue("@genre", newBook.Genre);
-                    cmd.Parameters.AddWithValue("@dateAdded", newBook.DateAdded);
+                    cmd.Parameters.AddWithValue("@dateAdded", DateTime.Now.ToShortDateString());
                     cmd.Parameters.AddWithValue("@description", newBook.Description);
                     cmd.Parameters.AddWithValue("@imageLink", newBook.ImageLink);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
-
-                    return rowsAffected > 0;
                 }
+                
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
             }
-            return true;
+            return newBook;
 
         }
 
-        public BookModel AddNewBook()
-        {
-            throw new NotImplementedException();
-        }
+
 
 
         //public List<BookModel> GetBooksByKeyword(string keyword)

@@ -44,11 +44,17 @@ namespace Capstone.Web.Controllers
             book = booksDAL.GetBooksById(bookID);
             return View("BookDetail", book);
         }
+
+        //GET: Get Add New Book View
+        public ActionResult AddNewBook()
+        {
+            return View("AddNewBook");
+        }
         //POST: Add New Book
         [HttpPost]
         public ActionResult AddNewBook(BookModel newBook)
         {
-            booksDAL.AddNewBook();
+            booksDAL.AddNewBook(newBook);
             return RedirectToAction("ThankYou");
 
         }
