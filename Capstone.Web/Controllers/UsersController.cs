@@ -17,7 +17,7 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult NewUser()
         {
-
+            return View();
         }
     }
 }
