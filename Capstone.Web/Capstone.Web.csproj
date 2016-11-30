@@ -173,7 +173,11 @@
     <Content Include="Views\Shared\_PartialSearchView.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Book\BookDetail.cshtml" />
+
+    <Content Include="Views\Book\ThankYou.cshtml" />
+
     <Content Include="Views\Users\NewUser.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
