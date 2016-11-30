@@ -100,43 +100,72 @@ namespace Capstone.Web.Models
             return output;
         }
 
+        public bool AddNewBook(BookModel newBook)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
 
+                    SqlCommand cmd = new SqlCommand("Insert into books Values (@title, @author, @mainCharacter, @setting, @genre, @dateAdded, @description, @imageLink);", conn);
+                    cmd.Parameters.AddWithValue("@title", newBook.Title);
+                    cmd.Parameters.AddWithValue("@author", newBook.Author);
+                    cmd.Parameters.AddWithValue("@mainCharacter", newBook.MainCharacter);
+                    cmd.Parameters.AddWithValue("@setting", newBook.Setting);
+                    cmd.Parameters.AddWithValue("@genre", newBook.Genre);
+                    cmd.Parameters.AddWithValue("@dateAdded", newBook.DateAdded);
+                    cmd.Parameters.AddWithValue("@description", newBook.Description);
+                    cmd.Parameters.AddWithValue("@imageLink", newBook.ImageLink);
 
-        //public List<BookModel> GetBooksByKeyword(string keyword)
-        //{
-        //    List<BookModel> output = new List<BookModel>();
-        //    string sqlString = "Select * from books WHERE title";//need to finish this
-        //    try
-        //    {
-        //        using (SqlConnection conn = new SqlConnection(ConnectionString))
-        //        {
-        //            conn.Open();
-        //            SqlCommand cmd = new SqlCommand(sqlString, conn);
-        //            cmd.Parameters.AddWithValue("@keyword", keyword);
-        //            SqlDataReader reader = cmd.ExecuteReader();
+                    int rowsAffected = cmd.ExecuteNonQuery();
 
-        //            while (reader.Read())
-        //            {
-        //                output.Add(new BookModel()
-        //                {
-        //                    BookID = Convert.ToInt32(reader["bookID"]),
-        //                    Title = Convert.ToString(reader["title"]),
-        //                    Author = Convert.ToString(reader["author"]),
-        //                    MainCharacter = Convert.ToString(reader["mainCharacter"]),
-        //                    Setting = Convert.ToString(reader["setting"]),
-        //                    Genre = Convert.ToString(reader["genre"]),
-        //                    DateAdded = Convert.ToDateTime(reader["dateAdded"])
-        //                });
-        //            }
-        //        }
-
-        //    }
-        //    catch (SqlException e)
-        //    {
-        //        Console.WriteLine(e.Message);
-        //    }
-        //    return output;
-        //}
-
+                    return rowsAffected > 0;
+                }
+            
+            }
+            catch(SqlException e)
+            {
+                throw;
+            }
     }
+
+
+    //public List<BookModel> GetBooksByKeyword(string keyword)
+    //{
+    //    List<BookModel> output = new List<BookModel>();
+    //    string sqlString = "Select * from books WHERE title";//need to finish this
+    //    try
+    //    {
+    //        using (SqlConnection conn = new SqlConnection(ConnectionString))
+    //        {
+    //            conn.Open();
+    //            SqlCommand cmd = new SqlCommand(sqlString, conn);
+    //            cmd.Parameters.AddWithValue("@keyword", keyword);
+    //            SqlDataReader reader = cmd.ExecuteReader();
+
+    //            while (reader.Read())
+    //            {
+    //                output.Add(new BookModel()
+    //                {
+    //                    BookID = Convert.ToInt32(reader["bookID"]),
+    //                    Title = Convert.ToString(reader["title"]),
+    //                    Author = Convert.ToString(reader["author"]),
+    //                    MainCharacter = Convert.ToString(reader["mainCharacter"]),
+    //                    Setting = Convert.ToString(reader["setting"]),
+    //                    Genre = Convert.ToString(reader["genre"]),
+    //                    DateAdded = Convert.ToDateTime(reader["dateAdded"])
+    //                });
+    //            }
+    //        }
+
+    //    }
+    //    catch (SqlException e)
+    //    {
+    //        Console.WriteLine(e.Message);
+    //    }
+    //    return output;
+    //}
+
+}
 }
