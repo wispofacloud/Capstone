@@ -1,0 +1,52 @@
+﻿@model Capstone.Web.Models.BookModel
+@{
+    ViewBag.Title = "AddNewBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add New Book</h2>
+
+@using (Html.BeginForm("AddNewBook", "Book", FormMethod.Post))
+{
+    <div>
+        @Html.Label("Title", "Title")
+        @Html.TextBoxFor(b => b.Title)
+    </div>
+
+    <div>
+        @Html.Label("Author", "Author")
+        @Html.TextBoxFor(b => b.Author)
+    </div>
+
+    <div>
+        @Html.Label("Main Character", "Main Character")
+        @Html.TextBoxFor(b => b.MainCharacter)
+    </div>
+
+    <div>
+        @Html.Label("Setting", "Setting")
+        @Html.TextBoxFor(b => b.Setting)
+    </div>
+
+    <div>
+        @Html.Label("Genre", "Genre")
+        @Html.TextBoxFor(b => b.Genre)
+    </div>
+
+    <div>
+        @Html.HiddenFor(b => b.DateAdded)
+    </div>
+    
+    <div>
+        @Html.Label("Description", "Description")
+        @Html.TextAreaFor(b => b.Description)
+    </div>
+
+    <div>
+        @Html.Label("Image Link", "Image Link")
+        @Html.TextBoxFor(b => b.ImageLink)
+    </div>
+
+    <button>Submit</button>
+}
+
