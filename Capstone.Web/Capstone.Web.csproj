@@ -144,8 +144,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\BooksSqlDAL.cs" />
     <Compile Include="DAL\IBooksDAL.cs" />
+
+    <Compile Include="DAL\IUsersDAL.cs" />
+    <Compile Include="DAL\UsersSqlDAL.cs" />
+    <Compile Include="Models\NewUserViewModel.cs" />
+
     <Compile Include="Models\AwardsModel.cs" />
     <Compile Include="Models\OpinionModel.cs" />
     <Compile Include="Models\SearchResultModel.cs" />
@@ -167,7 +173,11 @@
     <Content Include="Views\Shared\_PartialSearchView.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Book\BookDetail.cshtml" />
+
     <Content Include="Views\Book\ThankYou.cshtml" />
+
+    <Content Include="Views\Users\NewUser.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
