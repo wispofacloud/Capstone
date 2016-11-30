@@ -6,6 +6,11 @@
 }
 
 <h2>Search Results</h2>
+
+@if(Model.Results.Count < 1)
+{
+    <h3>No results found!</h3>
+}
 @foreach (var item in Model.Results)
 {<div class="blockForList">
 
