@@ -159,6 +159,7 @@
     <Compile Include="DAL\IUsersDAL.cs" />
     <Compile Include="DAL\UsersSqlDAL.cs" />
     <Compile Include="Models\AwardsModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\NewUserViewModel.cs" />
     <Compile Include="Models\OpinionModel.cs" />
     <Compile Include="Models\SearchResultModel.cs" />
@@ -183,6 +184,7 @@
     <Content Include="Views\Book\AddNewBook.cshtml" />
     <Content Include="Views\Book\ThankYou.cshtml" />
     <Content Include="Views\Users\NewUser.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

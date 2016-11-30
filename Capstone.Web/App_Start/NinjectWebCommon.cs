@@ -11,6 +11,7 @@ namespace Capstone.Web.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Models;
+    using DAL;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -61,7 +62,8 @@ namespace Capstone.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IBooksDAL>().To<BooksSqlDAL>(); //TODO: JRT Commented out
+            kernel.Bind<IBooksDAL>().To<BooksSqlDAL>();
+            kernel.Bind<IUsersDAL>().To<UsersSqlDAL>();
         }        
     }
 }
