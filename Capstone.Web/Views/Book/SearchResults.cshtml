@@ -5,7 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Search Results</h2>
 
+@if(Model.Results.Count < 1)
+{
+    <h3>No results found!</h3>
+}
 @foreach (var item in Model.Results)
 {<div class="blockForList">
 
@@ -15,8 +20,8 @@
         <div class="searchResultListItem">
 
 
-            <span class="title">Title: @Html.ActionLink(@item.Title, "BookDetail", "Book", new { bookID = item.BookID }, null)<br /></span>
-            <span>Author: @item.Author</span>
+            <h3 class="title">Title: @Html.ActionLink(@item.Title, "BookDetail", "Book", new { bookID = item.BookID }, null)<br /></h3>
+            <h3>Author: @item.Author</h3>
 
 
 

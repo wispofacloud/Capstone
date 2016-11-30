@@ -12,6 +12,13 @@ namespace Capstone.Web.Models
     {
         private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["EchoBooks"].ConnectionString;
 
+        private Dictionary<string, string> Choices = new Dictionary<string, string>()
+        {
+            { "Author", "SELECT * FROM books WHERE author like '%{1}%'"},
+            { "Title","SELECT * FROM books WHERE title like '%{1}%'"},
+            { "Setting","SELECT * FROM books WHERE setting like '%{1}%'"},
+            {"Character", "SELECT * FROM books WHERE mainCharacter like '%{1}%'"}
+        };
 
         public List<BookModel> GetBooks(string value, string type)
         {
@@ -21,28 +28,34 @@ namespace Capstone.Web.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string sql = "Select * from books where {0} = @value";
-                    sql = sql.Replace("{0}", type);
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@value", value);
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
+                    if (Choices.ContainsKey(type))
                     {
-                        output.Add(new BookModel()
+                        string sql = Choices[type];
+                        sql = sql.Replace("{1}", value);
+                        SqlCommand cmd = new SqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@value", value);
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
                         {
-                            BookID = Convert.ToInt32(reader["bookID"]),
-                            Title = Convert.ToString(reader["title"]),
-                            Author = Convert.ToString(reader["author"]),
-                            MainCharacter = Convert.ToString(reader["mainCharacter"]),
-                            Setting = Convert.ToString(reader["setting"]),
-                            Genre = Convert.ToString(reader["genre"]),
-                            DateAdded = Convert.ToDateTime(reader["dateAdded"]),
-                            ImageLink = Convert.ToString(reader["imageLink"])
-                    });
+                            output.Add(new BookModel()
+                            {
+                                BookID = Convert.ToInt32(reader["bookID"]),
+                                Title = Convert.ToString(reader["title"]),
+                                Author = Convert.ToString(reader["author"]),
+                                MainCharacter = Convert.ToString(reader["mainCharacter"]),
+                                Setting = Convert.ToString(reader["setting"]),
+                                Genre = Convert.ToString(reader["genre"]),
+                                DateAdded = Convert.ToDateTime(reader["dateAdded"]),
+                                ImageLink = Convert.ToString(reader["imageLink"])
+                            });
+                        }
+                    }
+                    else
+                    {
+                        return output;
                     }
                 }
-
             }
             catch (SqlException e)
             {

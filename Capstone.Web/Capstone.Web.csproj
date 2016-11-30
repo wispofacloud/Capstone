@@ -105,10 +105,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\6333984637_7d08596f9e_b.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\echobooks.png" />
+    <Content Include="Content\indexImage.png" />
+    <Content Include="Content\libraries.jpg" />
     <Content Include="Content\seamless_paper_texture.png" />
     <Content Include="Content\styles.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -157,7 +161,7 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Book\SearchResults.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_PartialSearchView.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Book\BookDetail.cshtml" />

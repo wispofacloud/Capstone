@@ -12,12 +12,14 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <img src="~/Content/echobooks.png" alt="Echo Books Logo" />
+    </header>
     <nav id="navBar" class="navbar navbar-default">
         
         
         <ul id="menuLinks" class="nav navbar-nav">
-            <li>@Html.ActionLink("Home", "Index")</li>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
 
 
         </ul>
