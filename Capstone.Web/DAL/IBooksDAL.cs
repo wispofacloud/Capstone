@@ -12,6 +12,6 @@ namespace Capstone.Web.Models
         List<BookModel> GetBooks(string value, string type);
         //List<BookModel> GetBooksByKeyword(string keyword);
         BookModel GetBooksById(int bookId);
-        BookModel AddNewBook();
+        BookModel AddNewBook(BookModel newBook);
     }
 }
