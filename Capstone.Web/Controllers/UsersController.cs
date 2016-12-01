@@ -124,5 +124,40 @@ namespace Capstone.Web.Controllers
         {
             Session.Abandon();
         }
+
+        public ActionResult Logout()
+        {
+            LogUserOut();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [ChildActionOnly]
+        public ActionResult GetAuthenticatedUser()
+        {
+            UserModel model = null;
+
+            if (IsAuthenticated)
+            {
+                model = usersDAL.GetUser(CurrentUser);
+            }
+
+            return PartialView("_PartialLoginLogoutView", model);
+        }
+
+        public string CurrentUser
+        {
+            get
+            {
+                string username = string.Empty;
+
+                //Check to see if user cookie exists, if not create it
+                if (Session[UsernameKey] != null)
+                {
+                    username = (string)Session[UsernameKey];
+                }
+
+                return username;
+            }
+        }
     }
 }

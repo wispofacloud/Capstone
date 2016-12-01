@@ -1,0 +1,11 @@
+﻿@model Capstone.Web.Models.UserModel
+
+@if (Session["UsernameKey"] == null)
+{
+    <li>@Html.ActionLink("Login", "Login", "Users")</li>
+}
+else
+{
+    <li>@Html.ActionLink($"Hello, {Model.Username}!", "Index", "Home")</li>
+    <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
+}

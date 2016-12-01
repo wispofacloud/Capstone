@@ -20,7 +20,7 @@
         
         <ul id="menuLinks" class="nav navbar-nav">
             <li>@Html.ActionLink("Home", "Index", "Home")</li>
-
+            @Html.Action("GetAuthenticatedUser", "Users")
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -35,5 +35,6 @@
             @RenderBody()
        
     </div>
+    <footer></footer>
 </body>
 </html>

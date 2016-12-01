@@ -185,6 +185,7 @@
     <Content Include="Views\Book\ThankYou.cshtml" />
     <Content Include="Views\Users\NewUser.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\Shared\_PartialLoginLogoutView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
