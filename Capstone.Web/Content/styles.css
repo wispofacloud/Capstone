@@ -5,10 +5,23 @@
     padding-top:1%;
 }
 header{
-    width:99%;
+    display:block;
+    background-color:#53abd0;
+}
+#logo{
+    display:inline-block;
+    width:50%;
     height:auto;
-    margin-left:2%;
+}
+#echoBooks{
+    display:inline-block;
+    color: #00568c;
+    font:bold 900 Trebuchet, sans-serif;
+}
 
+#footer{
+    background-color:#e77137;
+    margin-top: 1.5%;
 }
 #indexImg{
     margin:auto;
@@ -16,7 +29,7 @@ header{
     height:auto;
 }
 #menuLinks{
-    
+    color:#00568c;
 }
 body {
     background-attachment: fixed;

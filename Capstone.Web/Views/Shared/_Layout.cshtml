@@ -13,12 +13,13 @@
 </head>
 <body>
     <header>
-        <img src="~/Content/echobooks.png" alt="Echo Books Logo" />
+        <img id="logo" src="~/Content/echobooks.png" alt="Echo Books Logo" />
+        
     </header>
     <nav id="navBar" class="navbar navbar-default">
         
         
-        <ul id="menuLinks" class="nav navbar-nav">
+        <ul class="nav navbar-nav">
             <li>@Html.ActionLink("Home", "Index", "Home")</li>
             @Html.Action("GetAuthenticatedUser", "Users")
 
@@ -35,6 +36,10 @@
             @RenderBody()
        
     </div>
-    <footer></footer>
+    <div id="footer" class="navbar navbar-default">
+    <div class="container">
+
+    </div>
+    </div>
 </body>
 </html>
