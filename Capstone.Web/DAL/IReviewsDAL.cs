@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
-    interface IReviewsDAL
+    public interface IReviewsDAL
     {
+
     }
 }

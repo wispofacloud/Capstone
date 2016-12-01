@@ -5,7 +5,8 @@ using System.Web;
 
 namespace Capstone.Web.DAL
 {
-    public class ReviewsSqlDAL
+    public class ReviewsSqlDAL :IReviewsDAL
     {
+
     }
 }
