@@ -63,7 +63,7 @@ namespace Capstone.Web.Controllers
             return View("ThankYou");
         }
 
-
+        //Get: Get New Book List
         public ActionResult NewBookList()
         {
             List<BookModel> model = new List<BookModel>();

@@ -13,11 +13,7 @@ header{
     width:50%;
     height:auto;
 }
-/*#echoBooks{
-    display:inline-block;
-    color: #00568c;
-    font:bold 900 Trebuchet, sans-serif;
-}*/
+
 
 #footer{
     background-color:#e77137;
@@ -48,9 +44,6 @@ body {
 h2{
     padding-top:1%;
 }
-#red{
-    color:red;
-}
 h3{
     
 }
@@ -60,7 +53,11 @@ p{
 .blockForList{
     display:block;
     width:100%;
+    
    
+}
+.blockForList:last-child{
+    padding-bottom:5%;
 }
 .searchResultCoverImage{
     display: inline-block;
@@ -79,7 +76,6 @@ p{
     margin-top:2.5%;
     margin-left:3%;
 
-
 }
 .title{
 
@@ -96,8 +92,7 @@ li{
     box-shadow:40px;
     width:25%;
     vertical-align:top;
-    margin:3%;
-    
+    margin:3%;   
 
 }
 .detailDiv{

@@ -4,16 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Books</h2>
+<h2>Newly Added Books</h2>
 
 
 @for (int i = 0; i < Model.Count; i++)
 {
-    if ((@Model[i].DateAdded.CompareTo(DateTime.Now)) < 30)
-    {
 
 
-        {<div class="blockForList">
+
+    <div class="blockForList">
 
 
         <img class="searchResultCoverImage" src="@Model[i].ImageLink" alt="Picture of Cover" />
@@ -27,9 +26,10 @@
 
         </div>
     </div>
-        }
-    }
+
+
 }
+
 @if (Model.Count < 1)
 {
     <h3>No results found!</h3>
