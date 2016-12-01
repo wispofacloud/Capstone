@@ -17,6 +17,38 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
+        public UserModel GetUser(string username)
+        {
+            UserModel user = null;
+            try
+            {
+                string sqlQueryForGetUser = $"Select TOP 1 * from users where Username = @username";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sqlQueryForGetUser, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        user = new UserModel();
+                        user.UserID = Convert.ToInt32(reader["userID"]);
+                        user.Username = Convert.ToString(reader["username"]);
+                        user.Password = Convert.ToString(reader["password"]);
+                        user.IsAdmin = Convert.ToBoolean(reader["isAdmin"]);
+                        user.Salt = Convert.ToString(reader["salt"]);
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                e.Message.ToString();
+                throw;
+            }
+            return user;
+        }
+
         public UserModel GetUser(string username, string password)
         {
             UserModel user = null;

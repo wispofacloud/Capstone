@@ -10,6 +10,7 @@ namespace Capstone.Web.DAL
     public interface IUsersDAL
     {
         bool RegisterNewUser(UserModel newUser);
-        UserModel GetUser(string username, string password);      
+        UserModel GetUser(string username, string password);
+        UserModel GetUser(string username);   
     }
 }
