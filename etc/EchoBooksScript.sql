@@ -20,6 +20,18 @@ password varchar(200) not null,
 salt varchar (100) not null
 )
 
+Create Table reviews
+(
+reviewID int identity (1,1) not null primary key,
+userID int not null,
+bookID int not null,
+review varchar(Max) not null
+)
+
+Alter table reviews ADD FOREIGN KEY (userID) REFERENCES users(userID);
+
+Alter table reviews ADD FOREIGN KEY (bookID) REFERENCES books(bookID);
+
 	INSERT INTO books (title, author, mainCharacter, setting, genre, dateAdded, description, imageLink)
     VALUES ('Lily the Cat', 'Somerville, Amelia', 'Detective Brandon', 'Cleveland, OH', 'Pet Mystery', '08-17-2016', 'Lorem ipsum dolor sit amet, et his fuisset perpetua dignissim, ad justo elitr oporteat pri. Quo minim graece ad, scribentur disputationi eu qui. Ad vim integre imperdiet, in ubique torquatos nec. Democritum efficiendi vim in, pro munere voluptatum an. Sed ei dolorum indoctum, est sonet vivendum cu.','https://images-na.ssl-images-amazon.com/images/I/51PxQCRCx0L._AC_US240_FMwebp_QL65_.jpg'),
     ('Fly Over the Moon', 'Robellard, Nora', 'Nancy Draw', 'Japan', 'Travel Mystety', '09-12-2016', 'Lorem ipsum dolor sit amet, et his fuisset perpetua dignissim, ad justo elitr oporteat pri. Quo minim graece ad, scribentur disputationi eu qui. Ad vim integre imperdiet, in ubique torquatos nec. Democritum efficiendi vim in, pro munere voluptatum an. Sed ei dolorum indoctum, est sonet vivendum cu.', 'https://images-na.ssl-images-amazon.com/images/I/51PxQCRCx0L._AC_US240_FMwebp_QL65_.jpg'),

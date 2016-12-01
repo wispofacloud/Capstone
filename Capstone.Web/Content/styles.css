@@ -13,11 +13,11 @@ header{
     width:50%;
     height:auto;
 }
-#echoBooks{
+/*#echoBooks{
     display:inline-block;
     color: #00568c;
     font:bold 900 Trebuchet, sans-serif;
-}
+}*/
 
 #footer{
     background-color:#e77137;

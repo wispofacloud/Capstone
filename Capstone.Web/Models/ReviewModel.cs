@@ -5,10 +5,11 @@ using System.Web;
 
 namespace Capstone.Web.Models
 {
-    public class OpinionModel
+    public class ReviewModel
     {
-        public string Review { get; set; }
+        public int ReviewID { get; set; }
         public int UserID { get; set; }
         public int BookID { get; set; }
+        public string Review { get; set; }
     }
 }

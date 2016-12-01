@@ -162,7 +162,7 @@
     <Compile Include="Models\AwardsModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\NewUserViewModel.cs" />
-    <Compile Include="Models\OpinionModel.cs" />
+    <Compile Include="Models\ReviewModel.cs" />
     <Compile Include="Models\SearchResultModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
