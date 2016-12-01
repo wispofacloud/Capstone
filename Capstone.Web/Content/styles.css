@@ -111,5 +111,12 @@ li{
     padding-top:1%;
 
 }
+.newBookField{
+    margin-right: 17%;
+    text-align: right;
+    padding-top: 1%;
 
-
+}
+#newBookHeader{
+    padding-top:5%;
+}

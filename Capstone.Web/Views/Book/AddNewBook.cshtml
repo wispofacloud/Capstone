@@ -4,49 +4,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Add New Book</h2>
+<h2 id="newBookHeader">Add a New Book</h2>
 
 @using (Html.BeginForm("AddNewBook", "Book", FormMethod.Post))
 {
-    <div>
+    <div class="newBookField">
         @Html.Label("Title", "Title")
-        @Html.TextBoxFor(b => b.Title)
+        @Html.TextBoxFor(b => b.Title, new { style = "width: 75%;" })
     </div>
 
-    <div>
+    <div class="newBookField">
         @Html.Label("Author", "Author")
-        @Html.TextBoxFor(b => b.Author)
+        @Html.TextBoxFor(b => b.Author, new { style = "width: 75%;" })
     </div>
 
-    <div>
+    <div class="newBookField">
         @Html.Label("Main Character", "Main Character")
-        @Html.TextBoxFor(b => b.MainCharacter)
+        @Html.TextBoxFor(b => b.MainCharacter, new { style = "width: 75%;" })
     </div>
 
-    <div>
+    <div class="newBookField">
         @Html.Label("Setting", "Setting")
-        @Html.TextBoxFor(b => b.Setting)
+        @Html.TextBoxFor(b => b.Setting, new { style = "width: 75%;" })
     </div>
 
-    <div>
+    <div class="newBookField">
         @Html.Label("Genre", "Genre")
-        @Html.TextBoxFor(b => b.Genre)
+        @Html.TextBoxFor(b => b.Genre, new { style = "width: 75%;" })
     </div>
 
     <div>
         @Html.HiddenFor(b => b.DateAdded)
     </div>
-    
-    <div>
+
+    <div class="newBookField">
         @Html.Label("Description", "Description")
-        @Html.TextAreaFor(b => b.Description)
+        @Html.TextAreaFor(b => b.Description, new { style = "width: 75%;" })
     </div>
 
-    <div>
+     <div class="newBookField">
         @Html.Label("Image Link", "Image Link")
-        @Html.TextBoxFor(b => b.ImageLink)
+        @Html.TextBoxFor(b => b.ImageLink, new { style = "width: 75%;" })
     </div>
 
+    
     <button>Submit</button>
 }
 
