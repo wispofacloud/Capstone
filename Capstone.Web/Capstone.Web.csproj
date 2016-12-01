@@ -119,6 +119,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\echobooks.png" />
+    <Content Include="Content\echobookslogo.png" />
     <Content Include="Content\indexImage.png" />
     <Content Include="Content\libraries.jpg" />
     <Content Include="Content\seamless_paper_texture.png" />
@@ -185,7 +186,11 @@
     <Content Include="Views\Book\ThankYou.cshtml" />
     <Content Include="Views\Users\NewUser.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
+
     <Content Include="Views\Book\NewBookList.cshtml" />
+
+    <Content Include="Views\Shared\_PartialLoginLogoutView.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -12,11 +12,6 @@ namespace Capstone.Web.DAL
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["EchoBooks"].ConnectionString;
 
-        public UsersSqlDAL(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
-
         public UserModel GetUser(string username)
         {
             UserModel user = null;
@@ -86,11 +81,12 @@ namespace Capstone.Web.DAL
         {
             try
             {
-                string sqlQuery = $"Insert into users values(@username, @password, @salt);";
+                string sqlQuery = $"Insert into users values(@isAdmin, @username, @password, @salt);";
                 using(SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     SqlCommand command = new SqlCommand(sqlQuery, conn);
+                    command.Parameters.AddWithValue("@isAdmin", 0);
                     command.Parameters.AddWithValue("@username", newUser.Username);
                     command.Parameters.AddWithValue("@password", newUser.Password);
                     command.Parameters.AddWithValue("@salt", newUser.Salt);

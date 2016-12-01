@@ -16,7 +16,8 @@ Create Table users
 userID int identity (1,1) not null primary key,
 isAdmin bit not null,
 Username varchar(200) not null,
-password varchar(200) not null
+password varchar(200) not null,
+salt varchar (100) not null
 )
 
 	INSERT INTO books (title, author, mainCharacter, setting, genre, dateAdded, description, imageLink)
