@@ -56,7 +56,11 @@ namespace Capstone.Web.Controllers
         {
             booksDAL.AddNewBook(newBook);
             return RedirectToAction("ThankYou");
-
+            
+        }
+        public ActionResult ThankYou()
+        {
+            return View("ThankYou");
         }
         
 
