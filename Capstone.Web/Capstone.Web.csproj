@@ -157,7 +157,9 @@
     <Compile Include="Crypto\HashProvider.cs" />
     <Compile Include="DAL\BooksSqlDAL.cs" />
     <Compile Include="DAL\IBooksDAL.cs" />
+    <Compile Include="DAL\IReviewsDAL.cs" />
     <Compile Include="DAL\IUsersDAL.cs" />
+    <Compile Include="DAL\ReviewsSqlDAL.cs" />
     <Compile Include="DAL\UsersSqlDAL.cs" />
     <Compile Include="Models\AwardsModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -186,7 +188,9 @@
     <Content Include="Views\Book\ThankYou.cshtml" />
     <Content Include="Views\Users\NewUser.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
+
     <Content Include="Views\Book\NewBookList.cshtml" />
+
     <Content Include="Views\Shared\_PartialLoginLogoutView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
