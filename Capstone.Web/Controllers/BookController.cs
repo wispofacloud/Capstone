@@ -56,14 +56,20 @@ namespace Capstone.Web.Controllers
         {
             booksDAL.AddNewBook(newBook);
             return RedirectToAction("ThankYou");
-            
+
         }
         public ActionResult ThankYou()
         {
             return View("ThankYou");
         }
-        
 
-      
+
+        public ActionResult NewBookList()
+        {
+            List<BookModel> model = new List<BookModel>();
+            model = booksDAL.GetNewBookList();
+            return View("NewBookList", model);
+        }
+
     }
 }

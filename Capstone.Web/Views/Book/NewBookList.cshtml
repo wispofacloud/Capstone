@@ -1,0 +1,37 @@
+﻿@model List<Capstone.Web.Models.BookModel>
+@{
+    ViewBag.Title = "NewBookList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Books</h2>
+
+
+@for (int i = 0; i < Model.Count; i++)
+{
+    if ((@Model[i].DateAdded.CompareTo(DateTime.Now)) < 30)
+    {
+
+
+        {<div class="blockForList">
+
+
+        <img class="searchResultCoverImage" src="@Model[i].ImageLink" alt="Picture of Cover" />
+
+        <div class="searchResultListItem">
+
+
+            <h3 class="title">Title: @Html.ActionLink(Model[i].Title, "BookDetail", "Book", new { bookID = Model[i].BookID }, null)<br /></h3>
+            <h3>Author: @Model[i].Author</h3>
+
+
+        </div>
+    </div>
+        }
+    }
+}
+@if (Model.Count < 1)
+{
+    <h3>No results found!</h3>
+}
+
