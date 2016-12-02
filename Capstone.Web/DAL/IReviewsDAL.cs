@@ -9,7 +9,7 @@ namespace Capstone.Web.DAL
 {
     public interface IReviewsDAL
     {
-        ReviewModel GetReview(string title);
-        bool SubmitReview(ReviewModel post);
+        ReviewModel GetReview(int bookID);
+        bool SubmitBookReview(ReviewModel post);
     }
 }

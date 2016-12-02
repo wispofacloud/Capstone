@@ -17,5 +17,6 @@
         <h4 class="detailDescription">@Model.Description</h4>
 
     </div>
+    @Html.ActionLink("Write A Review", "SubmitBookReview", "Book", new { id = Model.BookID }, null)
 
 </div>
