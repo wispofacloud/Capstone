@@ -100,8 +100,9 @@ namespace Capstone.Web.Models
             return output;
         }
 
-        public BookModel AddNewBook(BookModel newBook)
+        public bool AddNewBook(BookModel newBook)
         {
+            int rowsAffected = 0;
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -118,7 +119,7 @@ namespace Capstone.Web.Models
                     cmd.Parameters.AddWithValue("@description", newBook.Description);
                     cmd.Parameters.AddWithValue("@imageLink", newBook.ImageLink);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    rowsAffected = cmd.ExecuteNonQuery();
                 }
 
             }
@@ -126,7 +127,7 @@ namespace Capstone.Web.Models
             {
                 Console.WriteLine(e.Message);
             }
-            return newBook;
+            return rowsAffected > 0;
 
         }
 

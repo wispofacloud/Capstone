@@ -1,4 +1,6 @@
-﻿using Capstone.Web.Models;
+﻿using Capstone.Web.DAL;
+using Capstone.Web.Filters;
+using Capstone.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +9,11 @@ using System.Web.Mvc;
 
 namespace Capstone.Web.Controllers
 {
-    public class BookController : Controller
+    public class BookController : UsersController
     {
         private IBooksDAL booksDAL;
 
-        public BookController(IBooksDAL booksDAL)
+        public BookController(IBooksDAL booksDAL, IUsersDAL usersDAL) : base(usersDAL)
         {
             this.booksDAL = booksDAL;
         }
@@ -46,11 +48,13 @@ namespace Capstone.Web.Controllers
         }
 
         //GET: Get Add New Book View
+        [AuthorizationFilter]
         public ActionResult AddNewBook()
         {
             return View("AddNewBook");
         }
         //POST: Add New Book
+        [AuthorizationFilter]
         [HttpPost]
         public ActionResult AddNewBook(BookModel newBook)
         {
