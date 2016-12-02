@@ -1,0 +1,26 @@
+﻿@model Capstone.Web.Models.MyEchoBooksViewModel
+@{
+    ViewBag.Title = "Reading List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Echo Books</h2>
+
+<h3>Welcome, @Model.CurrentUser.Username</h3>
+
+@foreach (var book in Model.ReadingList)
+{
+    <div>
+        <div>
+            <p>@book.Title by @book.Author</p>
+             @if(book.HasRead)
+             {
+                 <p>You have read this book!</p>
+             }
+             else
+             {
+                 <p>On your To-Be-Read Shelf!</p>
+             }
+        </div>
+    </div>
+}

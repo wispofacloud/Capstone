@@ -5,22 +5,29 @@ using System.Web;
 using System.Web.Mvc;
 using Capstone.Web.DAL;
 using Capstone.Web.Filters;
+using Capstone.Web.Models;
 
 namespace Capstone.Web.Controllers
 {
-    public class MyEchoBooksController : UsersController
+    public class MyEchoBooksController : EchoController
     {
         private readonly IReadingListDAL readingListDAL;
-        public MyEchoBooksController(IReadingListDAL readingListDAL, IUsersDAL usersDAL) : base(usersDAL)
+        private readonly IUsersDAL usersDAL;
+        public MyEchoBooksController(IReadingListDAL readingListDAL, IUsersDAL usersDAL)
         {
             this.readingListDAL = readingListDAL;
+            this.usersDAL = usersDAL;
         }
 
-        // GET: MyEchoBooks
         [AuthorizationFilter]
-        public ActionResult Index()
+        public ActionResult ReadingList()
         {
-            return View();
+            UserModel user = usersDAL.GetUser(base.CurrentUser);
+            List<ReadingListModel> readingList = readingListDAL.GetReadingList(user.UserID);
+            MyEchoBooksViewModel model = new MyEchoBooksViewModel();
+            model.ReadingList = readingList;
+            model.CurrentUser = user;
+            return View("ReadingList", model);
         }
 
 

@@ -9,11 +9,11 @@ using System.Web.Mvc;
 
 namespace Capstone.Web.Controllers
 {
-    public class BookController : UsersController
+    public class BookController : EchoController
     {
         private IBooksDAL booksDAL;
 
-        public BookController(IBooksDAL booksDAL, IUsersDAL usersDAL) : base(usersDAL)
+        public BookController(IBooksDAL booksDAL)
         {
             this.booksDAL = booksDAL;
         }

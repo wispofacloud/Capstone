@@ -11,5 +11,6 @@ namespace Capstone.Web.DAL
     {
         bool AddBookToReadingList(ReadingListModel model);
         bool ChangeBookToHasRead(ReadingListModel model);
+        List<ReadingListModel> GetReadingList(int userID);
     }
 }

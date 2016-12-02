@@ -152,6 +152,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\EchoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyEchoBooksController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="Filters\AuthorizationFilter.cs" />
     <Compile Include="Models\AwardsModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\MyEchoBooksViewModel.cs" />
     <Compile Include="Models\NewUserViewModel.cs" />
     <Compile Include="Models\ReadingListModel.cs" />
     <Compile Include="Models\ReviewModel.cs" />
@@ -195,7 +197,7 @@
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Book\NewBookList.cshtml" />
     <Content Include="Views\Shared\_PartialLoginLogoutView.cshtml" />
-    <Content Include="Views\MyEchoBooks\MyEchoBooks.cshtml" />
+    <Content Include="Views\MyEchoBooks\ReadingList.cshtml" />
     <Content Include="Views\Shared\_PartialBookReviewView.cshtml" />
     <Content Include="Views\Book\SubmitBookReview.cshtml" />
     <None Include="Web.Debug.config">
@@ -207,6 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Echo\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

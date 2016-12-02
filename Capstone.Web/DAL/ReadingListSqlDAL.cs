@@ -10,14 +10,17 @@ namespace Capstone.Web.DAL
 {
     public class ReadingListSqlDAL : IReadingListDAL
     {
-        private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["EchoBooks"].ConnectionString;
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["EchoBooks"].ConnectionString;
+
+
+
 
         public bool AddBookToReadingList(ReadingListModel model)
         {
             int rowsAffected = 0;
             try
             {
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
@@ -45,7 +48,7 @@ namespace Capstone.Web.DAL
             int rowsAffected = 0;
             try
             {
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
@@ -64,6 +67,40 @@ namespace Capstone.Web.DAL
             }
             return rowsAffected > 0;
 
+        }
+
+        public List<ReadingListModel> GetReadingList(int userID)
+        {
+            List<ReadingListModel> listModel = new List<ReadingListModel>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string sql = "Select readingList.bookID, readingList.userID, hasRead, author, title from readingList inner join books on books.bookID = readingList.bookID inner join users on users.userID = readingList.userID Where readingList.userID = @userID;";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@userID", userID);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while(reader.Read())
+                    {
+                        listModel.Add(new ReadingListModel()
+                        {
+                            BookID = Convert.ToInt32(reader["bookID"]),
+                            UserID = Convert.ToInt32(reader["userID"]),
+                            HasRead = Convert.ToBoolean(reader["hasRead"]),
+                            Title = Convert.ToString(reader ["title"]),
+                            Author = Convert.ToString(reader ["author"]),
+                            
+                        });
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                e.Message.ToString();
+            }
+            return listModel;
         }
     }
 }

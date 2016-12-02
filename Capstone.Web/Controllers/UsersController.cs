@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Capstone.Web.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : EchoController
     {
         private readonly IUsersDAL usersDAL;
         private const string UsernameKey = "UsernameKey";
@@ -18,21 +18,8 @@ namespace Capstone.Web.Controllers
             this.usersDAL = usersDAL;
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public bool IsAuthenticated
-        {
-            get
-            {
-                return Session[UsernameKey] != null;
-            }
-        }
 
         [HttpGet]
-        [Route("users/new")]
         public ActionResult NewUser()
         {
 
@@ -115,16 +102,6 @@ namespace Capstone.Web.Controllers
             return View("Login", model);
         }
 
-        public void LogUserIn(string username)
-        {
-            Session[UsernameKey] = username;
-        }
-
-        public void LogUserOut()
-        {
-            Session.Abandon();
-        }
-
         public ActionResult Logout()
         {
             LogUserOut();
@@ -144,20 +121,5 @@ namespace Capstone.Web.Controllers
             return PartialView("_PartialLoginLogoutView", model);
         }
 
-        public string CurrentUser
-        {
-            get
-            {
-                string username = string.Empty;
-
-                //Check to see if user cookie exists, if not create it
-                if (Session[UsernameKey] != null)
-                {
-                    username = (string)Session[UsernameKey];
-                }
-
-                return username;
-            }
-        }
     }
 }

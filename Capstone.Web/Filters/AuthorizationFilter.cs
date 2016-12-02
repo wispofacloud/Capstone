@@ -18,7 +18,7 @@ namespace Capstone.Web.Filters
             {
                 //gets the userID from the url
                 var impliedUsername = (string)filterContext.ActionParameters["username"];
-                var controller = (UsersController)filterContext.Controller;
+                var controller = (EchoController)filterContext.Controller;
                 var actualUsername = controller.CurrentUser;
 
                 // If the user is not logged in, then take them to the login page
