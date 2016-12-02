@@ -1,0 +1,24 @@
+﻿@model Capstone.Web.Models.ReviewModel
+@{
+    ViewBag.Title = "SubmitBookReviewView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Submit A Book Review</h2>
+
+@using (Html.BeginForm("SubmitReview", "BookReview", FormMethod.Post))
+{
+    <div class="reviewBox">
+        @Html.Label("Title","Title")
+        @Html.TextBoxFor(b => b.Title,  new { style = "width: 75%;" })
+    </div>
+
+    <div class="reviewBox">
+        @Html.Label("Review", "Review")
+        @Html.TextAreaFor(b => b.Review, new { style = "width: 75%;" })
+    </div>
+
+    <button id="reviewSubmit">Submit!</button>
+}
+
+

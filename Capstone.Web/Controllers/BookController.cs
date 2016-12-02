@@ -74,6 +74,10 @@ namespace Capstone.Web.Controllers
             model = booksDAL.GetNewBookList();
             return View("NewBookList", model);
         }
+        public ActionResult SubmitBookReview()
+        {
+            return View("SubmitBookReview");
+        }
 
     }
 }
