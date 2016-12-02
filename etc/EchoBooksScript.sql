@@ -11,6 +11,8 @@
 	imageLink varchar(Max) 
 	)
 
+
+
 Create Table users
 (
 userID int identity (1,1) not null primary key,
@@ -19,6 +21,19 @@ Username varchar(200) not null,
 password varchar(200) not null,
 salt varchar (100) not null
 )
+
+
+create table readingList
+(
+bookID int not null,
+userID int not null,
+hasRead bit not null,
+Constraint pk_bookUser Primary KEY (bookID, userID)
+)
+
+Alter table readingList ADD FOREIGN KEY (userID) REFERENCES users(userID);
+
+Alter table readingList ADD FOREIGN KEY (bookID) REFERENCES books(bookID);
 
 Create Table reviews
 (
