@@ -1,39 +1,45 @@
-﻿#navBar{
-    background-color:#e77137;
-    padding-left:2%;
-    padding-right:2%;
-    padding-top:1%;
+﻿#navBar {
+    background-color: #e77137;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
 }
-header{
-    display:block;
-    background-color:#53abd0;
+
+header {
+    display: block;
+    background-color: #53abd0;
 }
-#logo{
-    display:inline-block;
-    width:50%;
-    height:auto;
+
+#logo {
+    display: inline-block;
+    width: 50%;
+    height: auto;
 }
 
 
-#footer{
-    background-color:#e77137;
+#footer {
+    background-color: #e77137;
     margin-top: 1.5%;
 }
-#indexImg{
-    margin:auto;
-    width:40%;
-    height:auto;
+
+#indexImg {
+    margin: auto;
+    width: 40%;
+    height: auto;
 }
-#menuLinks{
-    color:#00568c;
+
+#menuLinks {
+    color: #00568c;
 }
+
 body {
     background-attachment: fixed;
     background-image: url('6333984637_7d08596f9e_b.jpg');
 }
+
 .mainDiv {
     background-image: url('seamless_paper_texture.png');
-    opacity:0.98;
+    opacity: 0.98;
     min-height: 600px;
     width: 90%;
     border-radius: 5px;
@@ -41,90 +47,104 @@ body {
     margin: auto;
 }
 
-h2{
-    padding-top:1%;
+h2 {
+    padding-top: 3%;
 }
-h3{
-    
+
+h3 {
 }
-p{
-    
+
+p {
 }
-.blockForList{
-    display:block;
-    width:100%;
-    
-   
+
+.blockForList {
+    display: block;
+    width: 100%;
 }
-.blockForList:last-child{
-    padding-bottom:5%;
-}
-.searchResultCoverImage{
+
+    .blockForList:last-child {
+        padding-bottom: 5%;
+    }
+
+.searchResultCoverImage {
     display: inline-block;
-    width:10%;
+    width: 10%;
     background-color: green;
     border-radius: 3px;
     margin-right: 1%;
-    margin-top:2%;
+    margin-top: 2%;
     vertical-align: top;
 }
-.searchResultListItem{
-   display: inline-block;
-   text-align:left;
-    width:50%;
+
+.searchResultListItem {
+    display: inline-block;
+    text-align: left;
+    width: 50%;
     vertical-align: top;
-    margin-top:2.5%;
-    margin-left:3%;
+    margin-top: 2.5%;
+    margin-left: 3%;
+}
 
+.title {
 }
-.title{
 
+li {
+    list-style-type: none;
 }
-li{
-     list-style-type:none;
-}
-#container{
-    display:block;
-    padding:4%;
-}
-.detailImg{
-    display:inline-block;
-    box-shadow:40px;
-    width:25%;
-    vertical-align:top;
-    margin:3%;   
 
+#container {
+    display: block;
+    padding: 4%;
 }
-.detailDiv{
-    display:inline-block;
-    width:40%;
-    text-align:left;
-    margin:3%;
-    vertical-align:top;
+
+.detailImg {
+    display: inline-block;
+    box-shadow: 40px;
+    width: 25%;
+    vertical-align: top;
+    margin: 3%;
+}
+
+.detailDiv {
+    display: inline-block;
+    width: 40%;
+    text-align: left;
+    margin: 3%;
+    vertical-align: top;
     margin-top: 5%;
-    
-    
 }
-.detailTitle{
-    font-weight:bold;
-}
-.detailAuthor{
-    padding-top:2%;
 
+.detailTitle {
+    font-weight: bold;
 }
-.detailTagLine{
-    padding-top:2%;
-}
-.detailDescription{
-    padding-top:1%;
 
+.detailAuthor {
+    padding-top: 2%;
 }
-.newBookField{
+
+.detailTagLine {
+    padding-top: 2%;
+}
+
+.detailDescription {
+    padding-top: 1%;
+}
+
+.newBookField {
     margin-right: 17%;
     text-align: right;
     padding-top: 1%;
-
 }
-#newBookHeader{
-    padding-top:5%;
+
+#newBookHeader {
+    padding-top: 5%;
+}
+
+.reviewBox {
+    margin-right: 17%;
+    text-align: right;    
+    padding-top: 1%;
+}
+#reviewSubmit{
+    padding-top:3%;
 }

@@ -11,5 +11,6 @@ namespace Capstone.Web.Models
         public int UserID { get; set; }
         public int BookID { get; set; }
         public string Review { get; set; }
+        public string Title { get; set; }
     }
 }
