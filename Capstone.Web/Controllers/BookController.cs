@@ -12,11 +12,15 @@ namespace Capstone.Web.Controllers
     public class BookController : UsersController
     {
         private IBooksDAL booksDAL;
+        private IReviewsDAL reviewDAL;
 
-        public BookController(IBooksDAL booksDAL, IUsersDAL usersDAL) : base(usersDAL)
+        public BookController(IBooksDAL booksDAL, IUsersDAL usersDAL, IReviewsDAL reviewDAL) : base(usersDAL)
         {
             this.booksDAL = booksDAL;
+            this.reviewDAL = reviewDAL;
         }
+
+
 
         //GET: Book Search
         public List<SelectListItem> searchCriteria = new List<SelectListItem>()
@@ -74,10 +78,29 @@ namespace Capstone.Web.Controllers
             model = booksDAL.GetNewBookList();
             return View("NewBookList", model);
         }
-        public ActionResult SubmitBookReview()
+
+        //GET: Get Submit Book Review View
+        public ActionResult SubmitBookReview(int id)
         {
-            return View("SubmitBookReview");
+            BookModel book = booksDAL.GetBooksById(id);
+            ReviewModel model = new ReviewModel();
+            UserModel user = new UserModel();
+            model.UserID = user.UserID;
+            model.BookID = id;
+            model.Title = book.Title;
+            return View("SubmitBookReview", model);
         }
+
+        //POST: Submit Book Review
+        [HttpPost]
+        public ActionResult SubmitBookReview(ReviewModel post)
+        {
+
+            reviewDAL.SubmitBookReview(post);
+            return RedirectToAction("ThankYou");
+
+        }
+
 
     }
 }

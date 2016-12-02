@@ -13,21 +13,21 @@ namespace Capstone.Web.DAL
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["EchoBooks"].ConnectionString;
 
-        public ReviewModel GetReview(string title)
+        public ReviewModel GetReview(int bookID)
         {
             ReviewModel review = new ReviewModel();
             try
             {
-                string sqlQueryForGetReview = $"Select * from Review where title = @title";
+                string sqlQueryForGetReview = $"Select * from Review where bookID = @bookID";
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(sqlQueryForGetReview, conn);
-                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@bookID", bookID);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        review.Title = Convert.ToString(reader["title"]);
+                        review.BookID = Convert.ToInt32(reader["bookID"]);
                         review.Review = Convert.ToString(reader["review"]);
 
                     }
@@ -41,11 +41,11 @@ namespace Capstone.Web.DAL
             return review;
         }
 
-        public bool SubmitReview(ReviewModel post)
+        public bool SubmitBookReview(ReviewModel post)
         {
             try
             {
-                string sqlForSubmitReview = $"Insert into Review VALUES(@UserID, @BookID, @Review, @Title);";
+                string sqlForSubmitReview = $"Insert into Reviews VALUES(@UserID, @BookID, @Review);";
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -53,8 +53,7 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@UserID", post.UserID);
                     cmd.Parameters.AddWithValue("@BookID", post.BookID);
                     cmd.Parameters.AddWithValue("@Review", post.Review);
-                    cmd.Parameters.AddWithValue("@Title", post.Title);
-
+                    
                     int rowsAffected = cmd.ExecuteNonQuery();
                     return rowsAffected > 0;
 
