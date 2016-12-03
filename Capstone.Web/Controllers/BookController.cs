@@ -87,7 +87,14 @@ namespace Capstone.Web.Controllers
             BookModel book = booksDAL.GetBooksById(id);
             ReviewModel model = new ReviewModel();
             UserModel user = usersDAL.GetUser(base.CurrentUser);
-            model.UserID = user.UserID;
+            if (CurrentUser != null)
+            {
+                model.UserID = user.UserID;
+            }
+            else
+            {
+                model.UserID = 1;
+            }
             model.BookID = id;
             model.Title = book.Title;
             return View("SubmitBookReview", model);
