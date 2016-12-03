@@ -24,7 +24,7 @@ namespace Capstone.Web.Tests.DALTests
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cm = new SqlCommand("Delete from books", conn);
+                SqlCommand cm = new SqlCommand("Delete from readingList; Delete from reviews; Delete from books", conn);
                 cm.ExecuteNonQuery();
                 SqlCommand cmd2 = new SqlCommand("Insert into books values('The Test Title', 'Author, Test', 'Test Character', 'Test Setting', 'Test Genre', '11/30/2016', 'Test Description', 'Test imageLink');Select cast(Scope_Identity() as int)", conn);
                 bookId = (int)cmd2.ExecuteScalar();
