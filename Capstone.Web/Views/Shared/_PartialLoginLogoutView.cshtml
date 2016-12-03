@@ -3,9 +3,14 @@
 @if (Session["UsernameKey"] == null)
 {
     <li>@Html.ActionLink("Login", "Login", "Users")</li>
+    <li>@Html.ActionLink("Register", "NewUser", "Users")</li>
 }
 else
 {
-    <li>@Html.ActionLink($"Hello, {Model.Username}!", "Index", "Home")</li>
+    if (Model.IsAdmin)
+    {
+        <li>@Html.ActionLink("Add New Title", "AddNewBook", "Book")</li>
+    }
+    <li>@Html.ActionLink($"Hello, {Model.Username}!", "ReadingList", "MyEchoBooks")</li>
     <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
 }
