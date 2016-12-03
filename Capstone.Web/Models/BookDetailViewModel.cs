@@ -10,6 +10,9 @@ namespace Capstone.Web.Models
         public UserModel CurrentUser { get; set; }
         public BookModel CurrentBook { get; set; }
         public ReviewModel CurrentReview { get; set; }
-        
+        public ReadingListModel CurrentReadingList { get; set; }
+        public bool IsBookInList { get; set; }
     }
+
+
 }

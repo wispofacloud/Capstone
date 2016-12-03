@@ -14,12 +14,14 @@ namespace Capstone.Web.Controllers
         private IBooksDAL booksDAL;
         private IReviewsDAL reviewDAL;
         private IUsersDAL usersDAL;
+        private IReadingListDAL rlDAL;
 
-        public BookController(IBooksDAL booksDAL, IUsersDAL usersDAL, IReviewsDAL reviewDAL)
+        public BookController(IBooksDAL booksDAL, IUsersDAL usersDAL, IReviewsDAL reviewDAL, IReadingListDAL rlDAL)
         {
             this.booksDAL = booksDAL;
             this.usersDAL = usersDAL;
             this.reviewDAL = reviewDAL;
+            this.rlDAL = rlDAL;
         }
 
 
@@ -48,9 +50,19 @@ namespace Capstone.Web.Controllers
         //GET: Detail of chosen book
         public ActionResult BookDetail(int bookID)
         {
+            ReadingListModel list = new ReadingListModel();            
             BookModel book = new BookModel();
             book = booksDAL.GetBooksById(bookID);
-            return View("BookDetail", );
+            UserModel user = usersDAL.GetUser(base.CurrentUser);
+            ReviewModel review = reviewDAL.GetReview(bookID);
+            BookDetailViewModel model = new BookDetailViewModel();
+            model.CurrentBook = book;
+            model.CurrentReview = review;
+            model.CurrentUser = user;
+            list.UserID = user.UserID;
+            list.BookID = bookID;          
+            model.IsBookInList = rlDAL.BookAlreadyInList(list);
+            return View("BookDetail", model);
         }
 
         //GET: Get Add New Book View
@@ -114,5 +126,23 @@ namespace Capstone.Web.Controllers
             return PartialView("_PartialBookReviewView", review);
         }
 
+        public ActionResult AddToReadingList(int bookID, int userID)
+        {
+            ReadingListModel list = new ReadingListModel();
+            list.BookID = bookID;
+            list.UserID = userID;
+            BookModel book = new BookModel();
+            book = booksDAL.GetBooksById(bookID);
+            UserModel user = usersDAL.GetUser(base.CurrentUser);
+            ReviewModel review = reviewDAL.GetReview(bookID);
+            BookDetailViewModel model = new BookDetailViewModel();
+            model.CurrentBook = book;
+            model.CurrentReview = review;
+            model.CurrentUser = user;
+            model.CurrentReadingList = list;
+            rlDAL.AddBookToReadingList(list);
+            model.IsBookInList = true;
+            return View("BookDetail", model);
+        }
     }
 }

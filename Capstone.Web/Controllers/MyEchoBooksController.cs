@@ -30,15 +30,15 @@ namespace Capstone.Web.Controllers
             return View("ReadingList", model);
         }
 
-        public ActionResult AddToReadingList(int bookID, int userID)
+        [AuthorizationFilter]
+        public ActionResult ChangeToRead(ReadingListModel model)
         {
-            ReadingListModel readingList = new ReadingListModel();
-            readingList.BookID = bookID;
-            readingList.UserID = userID;
-            readingListDAL.AddBookToReadingList(readingList);
-            return View("BookDetail", bookID);
+            UserModel user = usersDAL.GetUser(base.CurrentUser);
+            List<ReadingListModel> readingList = readingListDAL.GetReadingList(user.UserID);
+            MyEchoBooksViewModel viewModel = new MyEchoBooksViewModel();
+            viewModel.ReadingList = readingList;
+            viewModel.CurrentUser = user;
+            readingListDAL.ChangeBookToHasRead(model);
+            return View("ReadingList", viewModel);
         }
-
-
-    }
-}
+    } }

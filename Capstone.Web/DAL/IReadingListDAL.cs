@@ -9,6 +9,7 @@ namespace Capstone.Web.DAL
 {
     public interface IReadingListDAL
     {
+        bool BookAlreadyInList(ReadingListModel model);
         bool AddBookToReadingList(ReadingListModel model);
         bool ChangeBookToHasRead(ReadingListModel model);
         List<ReadingListModel> GetReadingList(int userID);

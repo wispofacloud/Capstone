@@ -17,7 +17,7 @@
         <h4 class="detailDescription">@Model.CurrentBook.Description</h4>
 
     </div>
-    @if()
+    @* Need to write logic for only admin use *@
     @Html.ActionLink("Write A Review", "SubmitBookReview", "Book", new { id = Model.CurrentBook.BookID }, null)
 
 </div>
@@ -26,7 +26,16 @@
 
 </div>
 <div>
-    @Html.ActionLink("Add This Book To Your Reading List", "AddToReadingList", "MyEchoBooks", new { bookID = Model.CurrentBook.BookID, userID = Model.CurrentUser.UserID }, null)
+    @if(!Model.IsBookInList)
+    {
+    @Html.ActionLink("Add Book To Reading List", "AddToReadingList", "Book", new { bookID = Model.CurrentBook.BookID, userID = Model.CurrentUser.UserID }, null)
+    }
+    else
+    {
+        <p>This book is in your reading list.</p>
+    }
 </div>
+<div>
 
+</div>
 @*<div><button onclick="window.location.href='/Book/BookDetail'"></button></div>*@
