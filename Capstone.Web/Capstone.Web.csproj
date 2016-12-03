@@ -124,6 +124,7 @@
     <Content Include="Content\libraries.jpg" />
     <Content Include="Content\seamless_paper_texture.png" />
     <Content Include="Content\styles.css" />
+    <Content Include="Content\Thank you.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
