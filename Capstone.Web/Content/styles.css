@@ -45,6 +45,7 @@ body {
     border-radius: 5px;
     text-align: center;
     margin: auto;
+    padding-bottom: 5%;
 }
 
 h2 {
@@ -147,4 +148,10 @@ li {
 }
 #reviewSubmit{
    margin-top: 4%;
+}
+.dropdown{
+   height:23px;
+   border:transparent;
+   margin-right:6px;
+  // background:none;
 }
