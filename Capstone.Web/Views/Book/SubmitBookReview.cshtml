@@ -14,7 +14,9 @@
         @Html.TextAreaFor(b => b.Review, new { style = "width: 75%;" })
     </div>
     @Html.HiddenFor(m => m.BookID)
-    <button id="reviewSubmit">Submit!</button>
+    @Html.HiddenFor(m => m.UserID)
+        
+<button id="reviewSubmit">Submit!</button>
 }
 
 
