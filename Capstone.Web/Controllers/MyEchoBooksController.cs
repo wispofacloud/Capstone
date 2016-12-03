@@ -30,6 +30,15 @@ namespace Capstone.Web.Controllers
             return View("ReadingList", model);
         }
 
+        public ActionResult AddToReadingList(int bookID, int userID)
+        {
+            ReadingListModel readingList = new ReadingListModel();
+            readingList.BookID = bookID;
+            readingList.UserID = userID;
+            readingListDAL.AddBookToReadingList(readingList);
+            return View("BookDetail", bookID);
+        }
+
 
     }
 }

@@ -168,6 +168,7 @@
     <Compile Include="DAL\UsersSqlDAL.cs" />
     <Compile Include="Filters\AuthorizationFilter.cs" />
     <Compile Include="Models\AwardsModel.cs" />
+    <Compile Include="Models\BookDetailViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MyEchoBooksViewModel.cs" />
     <Compile Include="Models\NewUserViewModel.cs" />

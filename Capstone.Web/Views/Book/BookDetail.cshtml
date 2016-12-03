@@ -1,5 +1,5 @@
-﻿@model Capstone.Web.Models.BookModel
-@{
+﻿@model Capstone.Web.Models.BookDetailViewModel
+    @{
     ViewBag.Title = "BookDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,20 +8,25 @@
 
 <div id="container">
 
-        <img class="detailImg"src="@Model.ImageLink"/>
+        <img class="detailImg"src="@Model.CurrentBook.ImageLink" />
 
     <div class="detailDiv">
-        <h2 class="detailTitle">@Model.Title</h2>
-        <h3 class="detailAuthor">@Model.Author</h3>
-        <h4 class="detailTagLine">Join @Model.MainCharacter in @Model.Setting for a @Model.Genre adventure!</h4>
-        <h4 class="detailDescription">@Model.Description</h4>
+        <h2 class="detailTitle">@Model.CurrentBook.Title</h2>
+        <h3 class="detailAuthor">@Model.CurrentBook.Author</h3>
+        <h4 class="detailTagLine">Join @Model.CurrentBook.MainCharacter in @Model.CurrentBook.Setting for a @Model.CurrentBook.Genre adventure!</h4>
+        <h4 class="detailDescription">@Model.CurrentBook.Description</h4>
 
     </div>
-    @Html.ActionLink("Write A Review", "SubmitBookReview", "Book", new { id = Model.BookID }, null)
+    @if()
+    @Html.ActionLink("Write A Review", "SubmitBookReview", "Book", new { id = Model.CurrentBook.BookID }, null)
 
 </div>
 <div>
-    @Html.Action("RenderPartialBookReviewView", "Book", new { id = Model.BookID })
+    @Html.Action("RenderPartialBookReviewView", "Book", new { id = Model.CurrentBook.BookID })
+
+</div>
+<div>
+    @Html.ActionLink("Add This Book To Your Reading List", "AddToReadingList", "MyEchoBooks", new { bookID = Model.CurrentBook.BookID, userID = Model.CurrentUser.UserID }, null)
 </div>
 
-@*<div><button onclick="window.location.href='/Book/BookDetail'">Add Another Book To Your Reading List</button></div>*@
+@*<div><button onclick="window.location.href='/Book/BookDetail'"></button></div>*@
