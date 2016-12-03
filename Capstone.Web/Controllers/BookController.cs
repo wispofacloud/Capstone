@@ -50,7 +50,7 @@ namespace Capstone.Web.Controllers
         {
             BookModel book = new BookModel();
             book = booksDAL.GetBooksById(bookID);
-            return View("BookDetail", book);
+            return View("BookDetail", );
         }
 
         //GET: Get Add New Book View
