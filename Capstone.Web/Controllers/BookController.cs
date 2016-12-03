@@ -87,7 +87,7 @@ namespace Capstone.Web.Controllers
             BookModel book = booksDAL.GetBooksById(id);
             ReviewModel model = new ReviewModel();
             UserModel user = usersDAL.GetUser(base.CurrentUser);
-            model.UserID = user.UserID;           
+            model.UserID = user.UserID;
             model.BookID = id;
             model.Title = book.Title;
             return View("SubmitBookReview", model);
@@ -103,6 +103,16 @@ namespace Capstone.Web.Controllers
 
         }
 
+
+
+        //Partial View Linked to Detail View
+        [ChildActionOnly]
+        public ActionResult RenderPartialBookReviewView(int id)
+        {
+            ReviewModel review = new ReviewModel();
+            review = reviewDAL.GetReview(id);
+            return PartialView("_PartialBookReviewView", review);
+        }
 
     }
 }

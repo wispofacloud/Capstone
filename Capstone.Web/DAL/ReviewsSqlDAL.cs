@@ -18,7 +18,7 @@ namespace Capstone.Web.DAL
             ReviewModel review = new ReviewModel();
             try
             {
-                string sqlQueryForGetReview = $"Select * from Review where bookID = @bookID";
+                string sqlQueryForGetReview = $"Select * from Reviews where bookID = @bookID";
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
