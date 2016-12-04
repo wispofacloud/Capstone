@@ -31,14 +31,17 @@ namespace Capstone.Web.Controllers
         }
 
         [AuthorizationFilter]
-        public ActionResult ChangeToRead(ReadingListModel model)
+        public ActionResult ChangeToRead(int bookID)
         {
             UserModel user = usersDAL.GetUser(base.CurrentUser);
+            ReadingListModel currentBookInfo = new ReadingListModel();
+            currentBookInfo.BookID = bookID;
+            currentBookInfo.UserID = user.UserID;
+            readingListDAL.ChangeBookToHasRead(currentBookInfo);                       
             List<ReadingListModel> readingList = readingListDAL.GetReadingList(user.UserID);
             MyEchoBooksViewModel viewModel = new MyEchoBooksViewModel();
             viewModel.ReadingList = readingList;
             viewModel.CurrentUser = user;
-            readingListDAL.ChangeBookToHasRead(model);
             return View("ReadingList", viewModel);
         }
     } }

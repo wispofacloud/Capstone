@@ -59,9 +59,12 @@ namespace Capstone.Web.Controllers
             model.CurrentBook = book;
             model.CurrentReview = review;
             model.CurrentUser = user;
-            list.UserID = user.UserID;
-            list.BookID = bookID;          
-            model.IsBookInList = rlDAL.BookAlreadyInList(list);
+            if (model.CurrentUser != null)
+            {
+                list.UserID = user.UserID;
+                list.BookID = bookID;
+                model.IsBookInList = rlDAL.BookAlreadyInList(list);
+            }
             return View("BookDetail", model);
         }
 

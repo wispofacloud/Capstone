@@ -20,7 +20,7 @@
              else
              {
                  <p>On your To-Be-Read Shelf!</p>
-                 //Html.ActionLink("Change to Read!", "ChangeToRead", new {} )
+                 @Html.ActionLink("Change to Read!", "ChangeToRead", new {bookID = book.BookID})
              }
         </div>
     </div>

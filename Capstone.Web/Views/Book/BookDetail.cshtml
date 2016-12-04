@@ -26,11 +26,11 @@
 
 </div>
 <div>
-    @if(!Model.IsBookInList)
+    @if(!Model.IsBookInList && Model.CurrentUser != null)
     {
     @Html.ActionLink("Add Book To Reading List", "AddToReadingList", "Book", new { bookID = Model.CurrentBook.BookID, userID = Model.CurrentUser.UserID }, null)
     }
-    else
+    else if(Model.CurrentUser != null)
     {
         <p>This book is in your reading list.</p>
     }
