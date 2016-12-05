@@ -53,11 +53,10 @@ namespace Capstone.Web.DAL
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Insert into readingList Values (@bookID, @userID, @hasRead, @imageLink);", conn);
+                SqlCommand cmd = new SqlCommand("Insert into readingList Values (@bookID, @userID, @hasRead);", conn);
                 cmd.Parameters.AddWithValue("@bookID", model.BookID);
                 cmd.Parameters.AddWithValue("@userID", model.UserID);
                 cmd.Parameters.AddWithValue("@hasRead", 0);
-                cmd.Parameters.AddWithValue("@imageLink", model.ImageLink);
 
 
                     rowsAffected = cmd.ExecuteNonQuery();
