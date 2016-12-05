@@ -159,7 +159,9 @@
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Crypto\HashProvider.cs" />
     <Compile Include="DAL\BooksSqlDAL.cs" />
+    <Compile Include="DAL\ForumSqlDAL.cs" />
     <Compile Include="DAL\IBooksDAL.cs" />
+    <Compile Include="DAL\IForumDAL.cs" />
     <Compile Include="DAL\IReadingListDAL.cs" />
     <Compile Include="DAL\IReviewsDAL.cs" />
     <Compile Include="DAL\IUsersDAL.cs" />
@@ -169,9 +171,11 @@
     <Compile Include="Filters\AuthorizationFilter.cs" />
     <Compile Include="Models\AwardsModel.cs" />
     <Compile Include="Models\BookDetailViewModel.cs" />
+    <Compile Include="Models\CategoriesModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MyEchoBooksViewModel.cs" />
     <Compile Include="Models\NewUserViewModel.cs" />
+    <Compile Include="Models\PostsModel.cs" />
     <Compile Include="Models\ReadingListModel.cs" />
     <Compile Include="Models\ReviewModel.cs" />
     <Compile Include="Models\SearchResultModel.cs" />
@@ -179,6 +183,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BookModel.cs" />
+    <Compile Include="Models\ThreadsModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
