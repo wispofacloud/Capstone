@@ -1,0 +1,13 @@
+﻿@model Capstone.Web.Models.PostResultsViewModel
+@{
+    ViewBag.Title = "ViewPosts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View All Posts in the Selected Thread</h2>
+
+@foreach (var post in Model.AllPostsInThread)
+{
+    <div></div>
+}
+

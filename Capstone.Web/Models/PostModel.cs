@@ -12,5 +12,8 @@ namespace Capstone.Web.Models
         public int UserID { get; set; }
         public string PostBody { get; set; }
         public DateTime PostDate { get; set; }
+        public string ThreadName { get; set; }
+        public string Username { get; set; }
+       
     }
 }

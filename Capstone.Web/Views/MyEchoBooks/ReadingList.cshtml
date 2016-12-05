@@ -4,18 +4,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>My Echo Books</h2>
+<h2 class="echoBooks">My Echo Books</h2>
 
-<h3>Welcome, @Model.CurrentUser.Username</h3>
+<h3 class="echoBooks">Welcome, @Model.CurrentUser.Username</h3>
 
 @foreach (var book in Model.ReadingList)
 {
     <div>
-        <div>
-        <img class="readingListImg" src="@book.ImageLink"/>
+        <div class="readingListImg">
+        <img src="@book.ImageLink"/>
         </div>
 
-        <div>
+        <div class="readingListDesc">
             <p><span class="readingListTitle">@book.Title</span><span class="readingListAuthor"> by @book.Author</span></p>
              @if(book.HasRead)
              {

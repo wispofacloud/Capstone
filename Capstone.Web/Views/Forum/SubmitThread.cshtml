@@ -1,0 +1,23 @@
+﻿@model Capstone.Web.Models.ThreadModel
+@{
+    ViewBag.Title = "SubmitThread";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Start a new thread</h2>
+
+@using (Html.BeginForm("SubmitThread", "Forum", FormMethod.Post))
+{
+    <div>
+        @Html.Label("threadName", "Enter a new topic")
+        @Html.TextAreaFor(t => t.ThreadName, new { style = "width:60%;" })
+    </div>
+    <div>
+        @Html.HiddenFor(t =>t.UserID)
+    </div>
+    <div>
+        @Html.HiddenFor(t=>t.ThreadDate)
+    </div>
+    <button>Submit!</button>
+}
+

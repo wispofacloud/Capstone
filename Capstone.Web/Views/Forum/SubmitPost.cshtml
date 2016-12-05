@@ -1,0 +1,23 @@
+﻿@model Capstone.Web.Models.PostModel
+@{
+    ViewBag.Title = "SubmitPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.ThreadName</h2>
+<h4>Add your two cents...</h4>
+@using (Html.BeginForm("SubmitPost", "Forum", FormMethod.Post))
+{
+    <div>
+        @Html.Label("postBody", "Title")
+        @Html.TextAreaFor(p => p.PostBody, new { style = "width:60%;" })
+    </div>
+    <div>
+        @Html.HiddenFor(p => p.UserID)
+    </div>
+    <div>
+        @Html.HiddenFor(p =>p.PostDate)
+    </div>
+    <button>Submit!</button>
+}
+
