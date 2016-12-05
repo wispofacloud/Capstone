@@ -47,7 +47,6 @@ body {
     min-height: 600px;
     width: 88%;
     border-radius: 5px;
-    text-align: center;
     margin: auto;
     padding-bottom: 3%;
     margin-bottom: 3%;
@@ -176,6 +175,10 @@ li {
     height: auto;
     padding: 5%;
 }
+.echoBooks{
+    margin:auto;
+    text-align:center;
+}
 #bookTitle{
     font-weight:bold;
     color:darkred;
@@ -192,4 +195,18 @@ li {
 }
 .readingListAuthor{
     font-style:italic;
+}
+.readingListImg{
+    width:15%;
+    margin-left:4%;
+    margin-bottom:5%;
+    display:inline-block;
+    clear: both;  
+      
+}
+.readingListDesc{
+    display:inline-block;
+    width:40%;
+    vertical-align:top;
+    padding:5%;
 }
