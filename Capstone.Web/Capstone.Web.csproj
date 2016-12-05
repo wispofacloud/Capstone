@@ -207,6 +207,10 @@
     <Content Include="Views\MyEchoBooks\ReadingList.cshtml" />
     <Content Include="Views\Shared\_PartialBookReviewView.cshtml" />
     <Content Include="Views\Book\SubmitBookReview.cshtml" />
+    <Content Include="Views\Forum\ViewThreads.cshtml" />
+    <Content Include="Views\Forum\SubmitThread.cshtml" />
+    <Content Include="Views\Forum\ViewPosts.cshtml" />
+    <Content Include="Views\Forum\SubmitPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
