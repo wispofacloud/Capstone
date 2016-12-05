@@ -21,7 +21,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = "Select * from posts where threadID = @threadID";
+                    string sql = "Select postID, posts.threadID, posts.userID, postBody, postDate, users.username, threads.threadname from posts join users on posts.userID = users.userID join threads on threads.threadID = posts.threadID where posts.threadID = @threadID;";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@threadID", threadId);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -34,7 +34,9 @@ namespace Capstone.Web.DAL
                             ThreadID = Convert.ToInt32(reader["threadID"]),
                             UserID = Convert.ToInt32(reader["userID"]),
                             PostBody = Convert.ToString(reader["postBody"]),
-                            PostDate = Convert.ToDateTime(reader["postDate"])
+                            PostDate = Convert.ToDateTime(reader["postDate"]),
+                            Username = Convert.ToString(reader["username"]),
+                            ThreadName = Convert.ToString(reader["threadname"])
 
                         });
                     }
@@ -57,7 +59,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = "Select * from threads;";
+                    string sql = "Select threadID, userID, categoryID, threadName, users.username from threads join users on users.userID = threads.userID;";
                     SqlCommand cmd2 = new SqlCommand(sql, conn);
                     SqlDataReader reader = cmd2.ExecuteReader();
 
@@ -68,8 +70,8 @@ namespace Capstone.Web.DAL
                             ThreadID = Convert.ToInt32(reader["threadID"]),
                             UserID = Convert.ToInt32(reader["userID"]),
                             CategoryID = Convert.ToInt32(reader["categoryID"]),
-                            ThreadName = Convert.ToString(reader["threadName"])
-
+                            ThreadName = Convert.ToString(reader["threadName"]),
+                            Username = Convert.ToString(reader["username"])
                         });
                     }
 
