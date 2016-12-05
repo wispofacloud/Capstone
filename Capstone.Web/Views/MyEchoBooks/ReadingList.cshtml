@@ -12,15 +12,19 @@
 {
     <div>
         <div>
-            <p>@book.Title by @book.Author</p>
+        <img class="readingListImg" src="@book.ImageLink"/>
+        </div>
+
+        <div>
+            <p><span class="readingListTitle">@book.Title</span><span class="readingListAuthor"> by @book.Author</span></p>
              @if(book.HasRead)
              {
-                 <p>You have read this book!</p>
+                 <p class="hasRead">You have read this book!</p>
              }
              else
              {
-                 <p>On your To-Be-Read Shelf!</p>
-                 @Html.ActionLink("Change to Read!", "ChangeToRead", new {bookID = book.BookID})
+                 <p class="toRead">On your To-Be-Read Shelf!</p>
+                <button>@Html.ActionLink("I've read it!", "ChangeToRead", new { bookID = book.BookID })</button>
              }
         </div>
     </div>
