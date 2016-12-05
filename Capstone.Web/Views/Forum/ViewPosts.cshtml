@@ -4,20 +4,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>View All Posts in the Selected Thread</h2>
+<div class="threadHead">
+    <h2>View All Posts in @Model.SelectedThread.ThreadName</h2>
 
-<div>@Model.SelectedThread.Username</div>
-<div>@Model.SelectedThread.ThreadDate</div>
+    <div class="threadUser">
+        <p><span class="italic">posted by:</span>@Model.SelectedThread.Username <span class="italic">on</span>@Model.SelectedThread.ThreadDate</p>
+    </div>
+</div>
 
-<div>@Model.SelectedThread.ThreadName</div>
+
 
 
 
 @foreach (var post in Model.AllPostsInThread)
 {
-    <div>@post.Username</div>
-    <div>@post.PostDate</div>
+<div class="eachPost" >
+    <div class="postUser">
+    @post.Username
+    @post.PostDate
+    </div>
 
-    <div>@post.PostBody</div>
+    <div class="postBody">@post.PostBody</div>
+</div>
+
+    <button>Add a new post!</button>
+
 }
 

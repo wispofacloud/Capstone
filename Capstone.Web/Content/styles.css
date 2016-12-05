@@ -210,3 +210,29 @@ li {
     vertical-align:top;
     padding:5%;
 }
+.threadHead{
+    background-color:#ffc999;
+}
+.threadUser{
+    text-align:right;
+    margin:5%;
+}
+.italic{
+    font-style:italic;
+}
+.eachPost:nth-child(odd){
+    background-color:#fff1e6;
+}
+.postUser{
+    display:inline-block;
+    text-align:left;
+    width:15%;
+}
+.postBody{
+    display:inline-block;
+    width:70%;
+    vertical-align:top;
+}
+.eachThread:nth-child(odd){
+    background-color:#fff1e6;
+}
