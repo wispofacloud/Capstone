@@ -21,9 +21,9 @@ namespace Capstone.Web.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cm = new SqlCommand("select * from readingList where bookID = @bookID and userID = @userID", conn);
+                    SqlCommand cm = new SqlCommand("select * from readingList where bookID = @bookID and userID = @userID " , conn);
                     cm.Parameters.AddWithValue("@bookID", model.BookID);
-                    cm.Parameters.AddWithValue("@userID", model.UserID);
+                    cm.Parameters.AddWithValue("@userID", model.UserID);                    
                     SqlDataReader reader = cm.ExecuteReader();
 
                     while(reader.Read())
@@ -32,6 +32,7 @@ namespace Capstone.Web.DAL
                             BookID = Convert.ToInt32(reader["bookID"]),
                             UserID = Convert.ToInt32(reader["userID"]),
                             HasRead = Convert.ToBoolean(reader["hasRead"]),
+                            
                         });
                     }
                 }   
@@ -52,13 +53,14 @@ namespace Capstone.Web.DAL
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Insert into readingList Values (@bookID, @userID, @hasRead);", conn);
+                SqlCommand cmd = new SqlCommand("Insert into readingList Values (@bookID, @userID, @hasRead, @imageLink);", conn);
                 cmd.Parameters.AddWithValue("@bookID", model.BookID);
                 cmd.Parameters.AddWithValue("@userID", model.UserID);
                 cmd.Parameters.AddWithValue("@hasRead", 0);
+                cmd.Parameters.AddWithValue("@imageLink", model.ImageLink);
 
 
-                rowsAffected = cmd.ExecuteNonQuery();
+                    rowsAffected = cmd.ExecuteNonQuery();
             }
 
         }
@@ -84,6 +86,7 @@ namespace Capstone.Web.DAL
                 cmd.Parameters.AddWithValue("@hasRead", 1);
                 cmd.Parameters.AddWithValue("@userID", model.UserID);
                 cmd.Parameters.AddWithValue("@bookID", model.BookID);
+                    
 
                 rowsAffected = cmd.ExecuteNonQuery();
             }
@@ -106,7 +109,7 @@ namespace Capstone.Web.DAL
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = "Select readingList.bookID, readingList.userID, hasRead, author, title from readingList inner join books on books.bookID = readingList.bookID inner join users on users.userID = readingList.userID Where readingList.userID = @userID;";
+                string sql = "Select readingList.bookID, readingList.userID, hasRead, author, title, imageLink from readingList inner join books on books.bookID = readingList.bookID inner join users on users.userID = readingList.userID Where readingList.userID = @userID;";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@userID", userID);
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -119,6 +122,7 @@ namespace Capstone.Web.DAL
                         HasRead = Convert.ToBoolean(reader["hasRead"]),
                         Title = Convert.ToString(reader["title"]),
                         Author = Convert.ToString(reader["author"]),
+                        ImageLink=Convert.ToString(reader["imageLink"]),
 
                     });
                 }

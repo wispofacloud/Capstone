@@ -13,5 +13,6 @@ namespace Capstone.Web.Models
         public string Title { get; set; }
         public string Author { get; set; }
         public string Username { get; set; }
+        public string ImageLink { get; set; }
     }
 }
