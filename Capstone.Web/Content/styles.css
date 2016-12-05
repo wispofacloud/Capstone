@@ -179,5 +179,17 @@ li {
 #bookTitle{
     font-weight:bold;
     color:darkred;
-
+}
+.toRead{
+    color:darkcyan;
+}
+.hasRead{
+    color:darkred;
+}
+.readingListTitle{
+    font-weight:600;
+    font-size:1.05em;
+}
+.readingListAuthor{
+    font-style:italic;
 }

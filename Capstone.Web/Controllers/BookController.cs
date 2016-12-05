@@ -95,10 +95,6 @@ namespace Capstone.Web.Controllers
             {
                 newBook.MainCharacter = "";
             }
-            if (newBook.ImageLink == null)
-            {
-                newBook.ImageLink = "https://commons.wikimedia.org/wiki/File%3ANo_image_available.svg";
-            }
             booksDAL.AddNewBook(newBook);
             return RedirectToAction("ThankYou");
 
