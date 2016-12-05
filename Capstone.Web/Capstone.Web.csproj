@@ -122,6 +122,7 @@
     <Content Include="Content\echobookslogo.png" />
     <Content Include="Content\indexImage.png" />
     <Content Include="Content\libraries.jpg" />
+    <Content Include="Content\No_image_available_500_x_500.svg.png" />
     <Content Include="Content\seamless_paper_texture.png" />
     <Content Include="Content\styles.css" />
     <Content Include="Content\Thank you.png" />
