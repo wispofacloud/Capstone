@@ -6,8 +6,18 @@
 
 <h2>View All Posts in the Selected Thread</h2>
 
+<div>@Model.SelectedThread.Username</div>
+<div>@Model.SelectedThread.ThreadDate</div>
+
+<div>@Model.SelectedThread.ThreadName</div>
+
+
+
 @foreach (var post in Model.AllPostsInThread)
 {
-    <div></div>
+    <div>@post.Username</div>
+    <div>@post.PostDate</div>
+
+    <div>@post.PostBody</div>
 }
 
