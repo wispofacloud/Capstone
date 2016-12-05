@@ -142,7 +142,7 @@ namespace Capstone.Web.Models
                     conn.Open();
 
 
-                    string sql = "Select * from books where dateAdded > @threshold;";
+                    string sql = "Select * from books where dateAdded > @threshold Order by author;";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@threshold", DateTime.Now.AddDays(-30));
                     SqlDataReader reader = cmd.ExecuteReader();
