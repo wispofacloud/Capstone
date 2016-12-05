@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
+
     public interface IForumDAL
     {
-        bool SubmitThread(ThreadModel submit);
+        bool SubmitThread(ThreadModel thread);
         bool SubmitPost(PostModel post);
         List<ThreadModel> GetAllThreads();
-        List<PostModel> GetAllPosts();
+        List<PostModel> GetAllPosts(int threadId);
   }
 }
