@@ -14,7 +14,7 @@ namespace Capstone.Web.Tests.DALTests
     {
         private TransactionScope tran;
         private string connectionString = ConfigurationManager.ConnectionStrings["EchoBooks"].ConnectionString;
-        int bookUser = -1; 
+        //int bookUser = -1; 
 
         [TestInitialize]
         public void Initialize()
@@ -25,10 +25,12 @@ namespace Capstone.Web.Tests.DALTests
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete from readingList; Delete from users; Delete from books", conn);
+                SqlCommand cmd = new SqlCommand("Delete from readingList;", conn);
+                //Sekhar also had  Delete from users; Delete from books
                 cmd.ExecuteNonQuery();
-                SqlCommand cmd2 = new SqlCommand("Insert into readingList values(5, 7, 0); Select cast(Scope_Identity() as int);", conn);
-                bookUser = (int)cmd2.ExecuteScalar();
+                SqlCommand cmd2 = new SqlCommand("Insert into readingList values(1, 1, 0);", conn);
+                //there is no identity column in the reading list so no need for Select cast(Scope_Identity() as int);
+                cmd2.ExecuteScalar();
             }
         }
         [TestCleanup]
@@ -43,12 +45,13 @@ namespace Capstone.Web.Tests.DALTests
             ReadingListSqlDAL dal = new ReadingListSqlDAL();
             ReadingListModel readingList = new ReadingListModel();
 
-            readingList.BookID = 1;
-            readingList.UserID = 1;
+            readingList.BookID = 2;
+            readingList.UserID = 2;
             
 
             bool addBook = dal.AddBookToReadingList(readingList);
             Assert.IsTrue(addBook);
+            
 
         }
 
@@ -62,8 +65,10 @@ namespace Capstone.Web.Tests.DALTests
             readingList.UserID = 1;
             readingList.HasRead = false;
 
-            bool hasRead = dal.AddBookToReadingList(readingList);
+            bool hasRead = dal.ChangeBookToHasRead(readingList);
             Assert.IsTrue(hasRead);
+            List<ReadingListModel> list = dal.GetReadingList(1);
+            Assert.AreEqual(true, list[0].HasRead);
 
         }
 
