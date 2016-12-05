@@ -88,12 +88,56 @@ namespace Capstone.Web.DAL
 
         public bool SubmitPost(PostModel post)
         {
-            throw new NotImplementedException();
+            int rowsAffected = 0;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("Insert into posts Values (@threadID, @userID, @postBody, @postDate, @threadName, @username);", conn);
+                    cmd.Parameters.AddWithValue("@threadID", post.ThreadID);
+                    cmd.Parameters.AddWithValue("@userID", post.UserID);
+                    cmd.Parameters.AddWithValue("@postBody", post.PostBody);
+                    cmd.Parameters.AddWithValue("@postDate", post.PostDate);
+                    cmd.Parameters.AddWithValue("@threadName", post.ThreadName);
+                    cmd.Parameters.AddWithValue("@username", post.Username);
+
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            return rowsAffected > 0;
         }
 
         public bool SubmitThread(ThreadModel thread)
         {
-            throw new NotImplementedException();
+            int rowsAffected = 0;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("Insert into threads Values (@userID, @categoryID, @threadName, @username);", conn);
+                    cmd.Parameters.AddWithValue("@userID", thread.UserID);
+                    cmd.Parameters.AddWithValue("@categoryID", thread.CategoryID);
+                    cmd.Parameters.AddWithValue("@threadName", thread.ThreadName);
+                    cmd.Parameters.AddWithValue("@username", thread.Username);
+
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            return rowsAffected > 0;
         }
     }
 }
