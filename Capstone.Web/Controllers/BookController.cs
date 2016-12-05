@@ -79,6 +79,26 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult AddNewBook(BookModel newBook)
         {
+            if(newBook.Description == null)
+            {
+                newBook.Description = "";
+            }
+            if(newBook.Setting == null)
+            {
+                newBook.Setting = "";
+            }
+            if(newBook.Genre == null)
+            {
+                newBook.Genre = "";
+            }
+            if(newBook.MainCharacter == null)
+            {
+                newBook.MainCharacter = "";
+            }
+            if (newBook.ImageLink == null)
+            {
+                newBook.ImageLink = "https://commons.wikimedia.org/wiki/File%3ANo_image_available.svg";
+            }
             booksDAL.AddNewBook(newBook);
             return RedirectToAction("ThankYou");
 
