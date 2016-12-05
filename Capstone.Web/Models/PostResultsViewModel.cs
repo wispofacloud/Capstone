@@ -7,6 +7,7 @@ namespace Capstone.Web.Models
 {
     public class PostResultsViewModel
     {
+        public ThreadModel SelectedThread { get; set; }
         public List<PostModel> AllPostsInThread = new List<PostModel>();
     }
 }
