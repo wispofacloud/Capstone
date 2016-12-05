@@ -7,8 +7,8 @@ namespace Capstone.Web.Models
 {
     public class CategoriesModel
     {
-        public string RecommendationsNeeded { get; set; }
-        public string PlotReviews { get; set; }
-        public string FanFiction { get; set; }
+        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
+
     }
 }

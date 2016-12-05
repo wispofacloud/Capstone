@@ -92,6 +92,7 @@
     <Compile Include="DALTests\BooksSqlDALTest.cs" />
     <Compile Include="DALTests\ReadingListSqlDALTest.cs" />
     <Compile Include="DALTests\ReviewsSqlDALTest.cs" />
+    <Compile Include="DALTests\ForumSqlDALTest.cs" />
     <Compile Include="DALTests\UsersSqlDALTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

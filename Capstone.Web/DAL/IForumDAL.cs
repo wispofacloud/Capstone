@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capstone.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,9 @@ namespace Capstone.Web.DAL
 {
     public interface IForumDAL
     {
-    }
+        bool SubmitThread(ThreadModel submit);
+        bool SubmitPost(PostModel post);
+        List<ThreadModel> GetAllThreads();
+        List<PostModel> GetAllPosts();
+  }
 }

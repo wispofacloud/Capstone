@@ -122,6 +122,7 @@
     <Content Include="Content\echobookslogo.png" />
     <Content Include="Content\indexImage.png" />
     <Content Include="Content\libraries.jpg" />
+    <Content Include="Content\No_image_available_500_x_500.svg.png" />
     <Content Include="Content\seamless_paper_texture.png" />
     <Content Include="Content\styles.css" />
     <Content Include="Content\Thank you.png" />
@@ -154,6 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\EchoController.cs" />
+    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyEchoBooksController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -175,7 +177,7 @@
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MyEchoBooksViewModel.cs" />
     <Compile Include="Models\NewUserViewModel.cs" />
-    <Compile Include="Models\PostsModel.cs" />
+    <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\ReadingListModel.cs" />
     <Compile Include="Models\ReviewModel.cs" />
     <Compile Include="Models\SearchResultModel.cs" />
@@ -183,7 +185,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BookModel.cs" />
-    <Compile Include="Models\ThreadsModel.cs" />
+    <Compile Include="Models\ThreadModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -221,6 +223,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Echo\" />
+    <Folder Include="Views\Forum\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

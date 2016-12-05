@@ -5,12 +5,11 @@ using System.Web;
 
 namespace Capstone.Web.Models
 {
-    public class PostsModel
+    public class ThreadModel
     {
         public int ThreadID { get; set; }
         public int UserID { get; set; }
-        public int PostID { get; set; }
-        public string PostBody { get; set; }
-        public DateTime PostDate { get; set; }
+        public int CategoryID { get; set; }
+        public string ThreadName { get; set; }
     }
 }
