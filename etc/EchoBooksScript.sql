@@ -47,6 +47,41 @@ Alter table reviews ADD FOREIGN KEY (userID) REFERENCES users(userID);
 
 Alter table reviews ADD FOREIGN KEY (bookID) REFERENCES books(bookID);
 
+
+create table categories
+(
+categoryID int identity (1,1) not null primary key,
+categoryName varchar(200) not null
+)
+
+create table threads
+(
+threadID int identity (1,1) not null primary key,
+userID int not null,
+categoryID int not null,
+threadName varchar(300) not null
+)
+
+alter table threads Add foreign key (categoryID) references categories(categoryID);
+
+Alter table threads Add foreign key (userID) references users(userID);
+
+create table posts
+(
+postID int identity (1,1) not null primary key,
+threadID int not null,
+userID int not null,
+postBody varchar(MAX) not null,
+postDate datetime not null
+)
+
+alter table posts add foreign key (userID) references users(userID);
+
+alter table posts add foreign key (threadID) references threads(threadID);
+
+
+	insert into categories (categoryName) Values ('Recommendations Needed'), ('Plot Reviews'), ('Fan Fiction'), ('Off Topic');
+
 	INSERT INTO books (title, author, mainCharacter, setting, genre, dateAdded, description, imageLink)
     VALUES ('Lily the Cat', 'Somerville, Amelia', 'Detective Brandon', 'Cleveland, OH', 'Pet Mystery', '08-17-2016', 'Lorem ipsum dolor sit amet, et his fuisset perpetua dignissim, ad justo elitr oporteat pri. Quo minim graece ad, scribentur disputationi eu qui. Ad vim integre imperdiet, in ubique torquatos nec. Democritum efficiendi vim in, pro munere voluptatum an. Sed ei dolorum indoctum, est sonet vivendum cu.','https://images-na.ssl-images-amazon.com/images/I/51PxQCRCx0L._AC_US240_FMwebp_QL65_.jpg'),
     ('Fly Over the Moon', 'Robellard, Nora', 'Nancy Draw', 'Japan', 'Travel Mystety', '09-12-2016', 'Lorem ipsum dolor sit amet, et his fuisset perpetua dignissim, ad justo elitr oporteat pri. Quo minim graece ad, scribentur disputationi eu qui. Ad vim integre imperdiet, in ubique torquatos nec. Democritum efficiendi vim in, pro munere voluptatum an. Sed ei dolorum indoctum, est sonet vivendum cu.', 'https://images-na.ssl-images-amazon.com/images/I/51PxQCRCx0L._AC_US240_FMwebp_QL65_.jpg'),

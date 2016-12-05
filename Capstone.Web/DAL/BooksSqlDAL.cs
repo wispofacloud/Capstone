@@ -126,6 +126,7 @@ namespace Capstone.Web.Models
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
+                throw;
             }
             return rowsAffected > 0;
 
