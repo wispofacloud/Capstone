@@ -66,6 +66,7 @@ namespace Capstone.Web.App_Start
             kernel.Bind<IUsersDAL>().To<UsersSqlDAL>();
             kernel.Bind<IReadingListDAL>().To<ReadingListSqlDAL>();
             kernel.Bind<IReviewsDAL>().To<ReviewsSqlDAL>();
+            kernel.Bind<IForumDAL>().To<ForumSqlDAL>();
         }        
     }
 }

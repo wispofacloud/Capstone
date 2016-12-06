@@ -11,7 +11,14 @@ namespace Capstone.Web.Controllers
     public class ForumController : EchoController
     {
         private IForumDAL forumDAL;
+
+        public ForumController(IForumDAL forumDAL)
+        {
+            this.forumDAL = forumDAL;
+        }
         // GET: Forum
+        
+       
         public ActionResult ViewPosts(int threadID)
         {
             List<PostModel> list = new List<PostModel>();
@@ -29,11 +36,12 @@ namespace Capstone.Web.Controllers
             AllThreads = forumDAL.GetThreadsByCategory(categoryID);
             return View("ViewThreads", AllThreads);
         }
+
         public ActionResult ViewCategories()
         {
             List<CategoriesModel> AllCategories = new List<CategoriesModel>();
             AllCategories = forumDAL.GetAllCategories();
-            return View("ViewCategories");
+            return View("ViewCategories",AllCategories);
         }
     }
 }

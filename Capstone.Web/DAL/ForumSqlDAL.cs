@@ -23,7 +23,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = "Select postID, posts.threadID, posts.userID, postBody, postDate, users.username, threads.threadname from posts join users on posts.userID = users.userID join threads on threads.threadID = posts.threadID where posts.threadID = @threadID;";
+                    string sql = "Select posts.postID, posts.threadID, posts.userID, posts.postBody, posts.postDate, users.username, threads.threadname from posts join users on posts.userID = users.userID join threads on threads.threadID = posts.threadID where posts.threadID = @threadID;";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@threadID", threadId);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -61,10 +61,10 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = "Select threadID, userID, categoryID, threadName, threadDate, users.username from threads join users on users.userID = threads.userID where categoryID = @categoryID;";
-                    SqlCommand cmd2 = new SqlCommand(sql, conn);
-                    cmd2.Parameters.AddWithValue("@categoryID", categoryID);
-                    SqlDataReader reader = cmd2.ExecuteReader();
+                    string sql = "Select threads.threadID, threads.userID, threads.categoryID, threads.threadName, threads.threadDate, users.username from threads join users on users.userID = threads.userID where categoryID = @categoryID;";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@categoryID", categoryID);
+                    SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
@@ -177,7 +177,7 @@ namespace Capstone.Web.DAL
             return rowsAffected > 0;
         }
 
-        List<CategoriesModel> IForumDAL.GetAllCategories()
+        public List<CategoriesModel> GetAllCategories()
         {
             List<CategoriesModel> output = new List<CategoriesModel>();
             try
@@ -197,15 +197,17 @@ namespace Capstone.Web.DAL
 
                         output.Add(model);
                     }
-                    return output;
+
 
                 }
+                
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
                 throw;
             }
+            return output;
 
         }
     }
