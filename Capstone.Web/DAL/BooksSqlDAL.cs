@@ -183,10 +183,26 @@ namespace Capstone.Web.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string sql = "select * from books where author is not (select dateAdded where @threshold >) Order by author;";
+                    string sql = "select * from books where author not (select author where dateAdded > @threshold) Order by author;";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@threshold", DateTime.Now.AddDays(-30));
+                    SqlDataReader reader = cmd.ExecuteReader();
 
+
+                    while (reader.Read())
+                    {
+                        output.Add(new BookModel()
+                        {
+                            BookID = Convert.ToInt32(reader["bookID"]),
+                            Title = Convert.ToString(reader["title"]),
+                            Author = Convert.ToString(reader["author"]),
+                            MainCharacter = Convert.ToString(reader["mainCharacter"]),
+                            Setting = Convert.ToString(reader["setting"]),
+                            Genre = Convert.ToString(reader["genre"]),
+                            DateAdded = Convert.ToDateTime(reader["dateAdded"]),
+                            ImageLink = Convert.ToString(reader["imageLink"])
+                        });
+                    }
                 }
             }
             catch (SqlException e)
