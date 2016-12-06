@@ -15,7 +15,14 @@
     <div class="blockForList">
 
 
-        <img class="searchResultCoverImage" src="@Model[i].ImageLink" alt="Picture of Cover" />
+        @if (string.IsNullOrEmpty(Model[i].ImageLink))
+        {
+            <img class="detailImg" src="@Url.Content("~/Content/echobookslogo.png")" />
+        }
+        else
+        {
+            <img class="detailImg" src="@Model[i].ImageLink" />
+        }
 
         <div class="searchResultListItem">
 

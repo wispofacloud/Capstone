@@ -12,7 +12,14 @@
 {
     <div>
         <div class="readingListImg">
-        <img src="@book.ImageLink"/>
+            @if (string.IsNullOrEmpty(book.ImageLink))
+            {
+                <img class="detailImg" src="@Url.Content("~/Content/echobookslogo.png")" />
+            }
+            else
+            {
+                <img class="detailImg" src="@book.ImageLink" />
+            }
         </div>
 
         <div class="readingListDesc">
