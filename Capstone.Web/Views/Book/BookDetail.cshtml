@@ -46,8 +46,6 @@
 <div>
 @if (Model.CurrentUser != null && Model.CurrentUser.IsAdmin)
 {
-    @* Need to write logic for only admin use *@
     <button> @Html.ActionLink("Write A Review", "SubmitBookReview", "Book", new { id = Model.CurrentBook.BookID }, null)</button>
 }
 </div>
-@*<div><button onclick="window.location.href='/Book/BookDetail'"></button></div>*@

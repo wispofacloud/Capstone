@@ -1,0 +1,16 @@
+﻿@model List<Capstone.Web.Models.CategoriesModel>
+@{
+    ViewBag.Title = "Forum";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Echo Books Forum</h2>
+
+@for (int i = 0; i < Model.Count; i++)
+{
+    <ul>
+        <li>@Html.ActionLink(Model[i].CategoryName,"ViewThreads", "Forum", new { categoryID = Model[i].CategoryID }, null)</li>
+    </ul>
+
+
+}
