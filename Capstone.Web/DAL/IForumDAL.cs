@@ -12,7 +12,7 @@ namespace Capstone.Web.DAL
     {
         bool SubmitThread(ThreadModel thread);
         bool SubmitPost(PostModel post);
-        List<ThreadModel> GetAllThreads();
+        List<ThreadModel> GetThreadsByCategory(int categoryID);
         List<PostModel> GetAllPosts(int threadId);
         ThreadModel GetThreadByThreadID(int threadId);
   }

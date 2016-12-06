@@ -12,9 +12,11 @@ namespace Capstone.Web.DAL
     {
         private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["EchoBooks"].ConnectionString;
 
-        List<PostModel> output = new List<PostModel>();
+        
+
         public List<PostModel> GetAllPosts(int threadId)
         {
+            List<PostModel> output = new List<PostModel>();
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -50,7 +52,7 @@ namespace Capstone.Web.DAL
             }
         }
 
-        public List<ThreadModel> GetAllThreads()
+        public List<ThreadModel> GetThreadsByCategory(int categoryID)
         {
             List<ThreadModel> output = new List<ThreadModel>();
             try
@@ -59,8 +61,9 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = "Select threadID, userID, categoryID, threadName, threadDate, users.username from threads join users on users.userID = threads.userID;";
+                    string sql = "Select threadID, userID, categoryID, threadName, threadDate, users.username from threads join users on users.userID = threads.userID where categoryID = @categoryID;";
                     SqlCommand cmd2 = new SqlCommand(sql, conn);
+                    cmd2.Parameters.AddWithValue("@categoryID", categoryID);
                     SqlDataReader reader = cmd2.ExecuteReader();
 
                     while (reader.Read())

@@ -23,10 +23,10 @@ namespace Capstone.Web.Controllers
             return View("ViewPosts", model);
         }
 
-        public ActionResult ViewThreads()
+        public ActionResult ViewThreads(int categoryID)
         {
             List<ThreadModel> AllThreads = new List<ThreadModel>();
-            AllThreads = forumDAL.GetAllThreads();
+            AllThreads = forumDAL.GetThreadsByCategory(categoryID);
             return View("ViewThreads", AllThreads);
         }
     }
