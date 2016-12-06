@@ -29,5 +29,11 @@ namespace Capstone.Web.Controllers
             AllThreads = forumDAL.GetThreadsByCategory(categoryID);
             return View("ViewThreads", AllThreads);
         }
+        public ActionResult ViewCategories()
+        {
+            List<CategoriesModel> AllCategories = new List<CategoriesModel>();
+            AllCategories = forumDAL.GetAllCategories();
+            return View("ViewCategories");
+        }
     }
 }

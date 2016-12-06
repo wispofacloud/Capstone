@@ -15,5 +15,6 @@ namespace Capstone.Web.DAL
         List<ThreadModel> GetThreadsByCategory(int categoryID);
         List<PostModel> GetAllPosts(int threadId);
         ThreadModel GetThreadByThreadID(int threadId);
-  }
+        List<CategoriesModel> GetAllCategories();
+    }
 }

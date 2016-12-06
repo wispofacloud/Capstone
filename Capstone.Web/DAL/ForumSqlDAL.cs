@@ -12,7 +12,7 @@ namespace Capstone.Web.DAL
     {
         private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["EchoBooks"].ConnectionString;
 
-        
+
 
         public List<PostModel> GetAllPosts(int threadId)
         {
@@ -176,5 +176,38 @@ namespace Capstone.Web.DAL
             }
             return rowsAffected > 0;
         }
+
+        List<CategoriesModel> IForumDAL.GetAllCategories()
+        {
+            List<CategoriesModel> output = new List<CategoriesModel>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string sql = "Select * from categories;";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        CategoriesModel model = new CategoriesModel();
+                        model.CategoryID = Convert.ToInt32(reader["categoryID"]);
+                        model.CategoryName = Convert.ToString(reader["categoryName"]);
+
+                        output.Add(model);
+                    }
+                    return output;
+
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+
+        }
     }
 }
+
