@@ -23,11 +23,10 @@ namespace Capstone.Web.Controllers
         }
 
         //Get: Get New Author List
-        public ActionResult RenderPartialNewAuthorList()
+        public ActionResult PartialNewAuthorList()
         {
-            List<String> model = new List<String>();
-            model = booksDAL.GetNewAuthorList();
-            return View("_PartialNewAuthorList", model);
+            List<String> model = booksDAL.GetNewAuthorList();
+            return PartialView("_PartialNewAuthorList", model);
         }
     }
 }
