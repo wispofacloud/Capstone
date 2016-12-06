@@ -159,11 +159,10 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("Insert into threads Values (@userID, @categoryID, @threadName, @username, @threadDate;", conn);
+                    SqlCommand cmd = new SqlCommand("Insert into threads Values (@userID, @categoryID, @threadName, @threadDate);", conn);
                     cmd.Parameters.AddWithValue("@userID", thread.UserID);
                     cmd.Parameters.AddWithValue("@categoryID", thread.CategoryID);
                     cmd.Parameters.AddWithValue("@threadName", thread.ThreadName);
-                    cmd.Parameters.AddWithValue("@username", thread.Username);
                     cmd.Parameters.AddWithValue("@threadDate", DateTime.Now.ToShortDateString());
 
                     rowsAffected = cmd.ExecuteNonQuery();

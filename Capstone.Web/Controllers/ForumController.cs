@@ -43,7 +43,20 @@ namespace Capstone.Web.Controllers
             AllCategories = forumDAL.GetAllCategories();
             return View("ViewCategories",AllCategories);
         }
+        //get
+        public ActionResult AddAThread()
+        {
+            ThreadModel model = new ThreadModel();
+            return View("SubmitThread", model);
+        }
 
-        public ActionResult 
+        [HttpPost]
+        public ActionResult AddAThread(ThreadModel model)
+        {
+            forumDAL.SubmitThread(model);
+            List<ThreadModel> AllThreads = new List<ThreadModel>();
+            AllThreads = forumDAL.GetThreadsByCategory(model.CategoryID);
+            return View("ViewThreads", AllThreads);
+        }
     }
 }
