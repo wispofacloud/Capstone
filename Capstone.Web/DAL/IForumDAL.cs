@@ -14,5 +14,6 @@ namespace Capstone.Web.DAL
         bool SubmitPost(PostModel post);
         List<ThreadModel> GetAllThreads();
         List<PostModel> GetAllPosts(int threadId);
+        ThreadModel GetThreadByThreadID(int threadId);
   }
 }

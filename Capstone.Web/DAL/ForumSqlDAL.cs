@@ -85,6 +85,38 @@ namespace Capstone.Web.DAL
             }
         }
 
+        public ThreadModel GetThreadByThreadID(int threadId)
+        {
+            ThreadModel thread = new ThreadModel();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+
+                    string sql = "Select threadID, userID, categoryID, threadName, users.username from threads join users on users.userID = threads.userID where threadID = @threadID";
+                    SqlCommand cmd2 = new SqlCommand(sql, conn);
+                    cmd2.Parameters.AddWithValue("@threadID", threadId);
+                    SqlDataReader reader = cmd2.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        thread.ThreadID = Convert.ToInt32(reader["threadID"]);
+                        thread.UserID = Convert.ToInt32(reader["userID"]);
+                        thread.CategoryID = Convert.ToInt32(reader["categoryID"]);
+                        thread.ThreadName = Convert.ToString(reader["threadName"]);
+                        thread.Username = Convert.ToString(reader["username"]);
+
+                    }
+                    return thread;
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
 
         public bool SubmitPost(PostModel post)
         {

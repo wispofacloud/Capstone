@@ -14,8 +14,12 @@ namespace Capstone.Web.Controllers
         // GET: Forum
         public ActionResult ViewPosts(int threadID)
         {
+            List<PostModel> list = new List<PostModel>();
             PostResultsViewModel model = new PostResultsViewModel();
-
+            ThreadModel thread = forumDAL.GetThreadByThreadID(threadID);
+            model.SelectedThread = thread;
+            list = forumDAL.GetAllPosts(threadID);
+            model.AllPostsInThread = list;
             return View("ViewPosts", model);
         }
     }
