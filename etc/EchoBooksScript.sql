@@ -66,6 +66,8 @@ alter table threads Add foreign key (categoryID) references categories(categoryI
 
 Alter table threads Add foreign key (userID) references users(userID);
 
+Alter table threads Add ThreadDate datetime
+
 create table posts
 (
 postID int identity (1,1) not null primary key,

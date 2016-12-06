@@ -59,7 +59,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = "Select threadID, userID, categoryID, threadName, users.username from threads join users on users.userID = threads.userID;";
+                    string sql = "Select threadID, userID, categoryID, threadName, threadDate, users.username from threads join users on users.userID = threads.userID;";
                     SqlCommand cmd2 = new SqlCommand(sql, conn);
                     SqlDataReader reader = cmd2.ExecuteReader();
 
@@ -71,7 +71,8 @@ namespace Capstone.Web.DAL
                             UserID = Convert.ToInt32(reader["userID"]),
                             CategoryID = Convert.ToInt32(reader["categoryID"]),
                             ThreadName = Convert.ToString(reader["threadName"]),
-                            Username = Convert.ToString(reader["username"])
+                            Username = Convert.ToString(reader["username"]),
+                            ThreadDate = Convert.ToDateTime(reader["threadDate"])
                         });
                     }
 
@@ -131,7 +132,7 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@threadID", post.ThreadID);
                     cmd.Parameters.AddWithValue("@userID", post.UserID);
                     cmd.Parameters.AddWithValue("@postBody", post.PostBody);
-                    cmd.Parameters.AddWithValue("@postDate", post.PostDate);
+                    cmd.Parameters.AddWithValue("@postDate", DateTime.Now.ToShortDateString());
                     cmd.Parameters.AddWithValue("@threadName", post.ThreadName);
                     cmd.Parameters.AddWithValue("@username", post.Username);
 
@@ -155,11 +156,12 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("Insert into threads Values (@userID, @categoryID, @threadName, @username);", conn);
+                    SqlCommand cmd = new SqlCommand("Insert into threads Values (@userID, @categoryID, @threadName, @username, @threadDate;", conn);
                     cmd.Parameters.AddWithValue("@userID", thread.UserID);
                     cmd.Parameters.AddWithValue("@categoryID", thread.CategoryID);
                     cmd.Parameters.AddWithValue("@threadName", thread.ThreadName);
                     cmd.Parameters.AddWithValue("@username", thread.Username);
+                    cmd.Parameters.AddWithValue("@threadDate", DateTime.Now.ToShortDateString());
 
                     rowsAffected = cmd.ExecuteNonQuery();
                 }

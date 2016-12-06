@@ -22,5 +22,12 @@ namespace Capstone.Web.Controllers
             model.AllPostsInThread = list;
             return View("ViewPosts", model);
         }
+
+        public ActionResult ViewThreads()
+        {
+            List<ThreadModel> AllThreads = new List<ThreadModel>();
+            AllThreads = forumDAL.GetAllThreads();
+            return View("ViewThreads", AllThreads);
+        }
     }
 }

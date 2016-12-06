@@ -187,7 +187,6 @@
     </Compile>
     <Compile Include="Models\BookModel.cs" />
     <Compile Include="Models\ThreadModel.cs" />
-    <Compile Include="Models\ThreadResultViewModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
