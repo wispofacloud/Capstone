@@ -163,5 +163,7 @@ namespace Capstone.Web.Controllers
             model.IsBookInList = true;
             return View("BookDetail", model);
         }
+
+
     }
 }

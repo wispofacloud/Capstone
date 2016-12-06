@@ -174,6 +174,27 @@ namespace Capstone.Web.Models
             }
 
         }
+
+        public List<BookModel> GetNewAuthorList()
+        {
+            List<BookModel> output = new List<BookModel>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
+                    string sql = "select * from books where author is not (select dateAdded where @threshold >) Order by author;";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@threshold", DateTime.Now.AddDays(-30));
+
+                }
+            }
+            catch (SqlException e)
+            {
+                e.Message.ToString();
+            }
+            return output;
+        }
     }
 }
 
