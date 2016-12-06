@@ -24,7 +24,7 @@ namespace Capstone.Web.Tests.DALTests
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cm = new SqlCommand("Delete from readingList; Delete from reviews; Delete from users", conn);
+                SqlCommand cm = new SqlCommand("Delete from posts; Delete from threads; Delete from readingList; Delete from reviews; Delete from users", conn);
                 cm.ExecuteNonQuery();
                 SqlCommand cmd2 = new SqlCommand("Insert into users values(1, 'username', 'Happy10th!', 'rht23o451309');Select cast(Scope_Identity() as int)", conn);
                 userID = (int)cmd2.ExecuteScalar();
