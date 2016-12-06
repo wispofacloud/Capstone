@@ -23,7 +23,7 @@ header {
     margin-bottom: 0px;
     padding-top: 5%;
     clear: both;
-    height:50px; 
+    height: 50px;
 }
 
 #indexImg {
@@ -34,7 +34,7 @@ header {
 
 #menuLinks {
     color: #00568c;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 body {
@@ -51,12 +51,11 @@ body {
     margin: auto;
     padding-bottom: 3%;
     margin-bottom: 3%;
-    text-align:center;
+    text-align: center;
 }
 
 h2 {
     padding-top: 3%;
-    
 }
 
 h3 {
@@ -77,7 +76,6 @@ p {
 .searchResultCoverImage {
     display: inline-block;
     width: 10%;
-    background-color: green;
     border-radius: 3px;
     margin-right: 1%;
     margin-top: 2%;
@@ -121,11 +119,13 @@ li {
     vertical-align: top;
     margin-top: 5%;
 }
-#addToList{
-    display:inline-block;
+
+#addToList {
+    display: inline-block;
 }
-#MyEB{
-    font-weight:bold;
+
+#MyEB {
+    font-weight: bold;
 }
 
 .detailTitle {
@@ -143,22 +143,23 @@ li {
 .detailDescription {
     padding-top: 1%;
 }
-#reviewHeader{
-    background-color:#53abd0;
-    height:60px;
+
+#reviewHeader {
+    background-color: #53abd0;
+    height: 60px;
 }
-#reviewHeadline{
-    text-align:left;
-    margin-left:15%;
-    font-weight:bold;
-    vertical-align:middle;
-    
-    
+
+#reviewHeadline {
+    text-align: left;
+    margin-left: 15%;
+    font-weight: bold;
+    vertical-align: middle;
 }
-#reviewText{
-    text-align:left;
-    margin-left:15%;
-    margin-top:1%;
+
+#reviewText {
+    text-align: left;
+    margin-left: 15%;
+    margin-top: 1%;
 }
 
 .newBookField {
@@ -172,8 +173,7 @@ li {
 }
 
 .reviewBox {
-    
-    margin:auto;
+    margin: auto;
     padding-top: 1%;
 }
 
@@ -185,7 +185,6 @@ li {
     height: 24px;
     border: transparent;
     margin-right: 5px;
-    
 }
 
 .instruction {
@@ -201,66 +200,89 @@ li {
     height: auto;
     padding: 5%;
 }
-.echoBooks{
-    margin:auto;
-    text-align:center;
+
+.echoBooks {
+    margin: auto;
+    text-align: center;
 }
-#bookTitle{
-    font-weight:bold;
-    color:darkred;
+
+#bookTitle {
+    font-weight: bold;
+    color: darkred;
 }
-.toRead{
-    color:darkcyan;
-    font-size:1.2em;
+
+.toRead {
+    color: darkcyan;
+    font-size: 1.2em;
 }
-.hasRead{
-    color:darkred;
-    font-size:1.2em;
+
+.hasRead {
+    color: darkred;
+    font-size: 1.2em;
 }
-.readingListTitle{
-    font-weight:600;
-    font-size:1.05em;
+
+.readingListTitle {
+    font-weight: 600;
+    font-size: 1.05em;
 }
-.readingListAuthor{
-    font-style:italic;
+
+.readingListAuthor {
+    font-style: italic;
 }
-.readingListImg{
-    width:15%;
-    margin-left:4%;
-    margin-bottom:5%;
-    display:inline-block;
-    clear: both;  
-      
+
+.readingListImg {
+    width: 25%;
+    margin-left: 4%;
+    margin-bottom: 5%;
+    display: inline-block;
+    clear: both;
 }
-.readingListDesc{
-    display:inline-block;
-    width:40%;
-    vertical-align:top;
-    padding:5%;
+
+.readingListDesc {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    padding: 5%;
 }
-.threadHead{
-    background-color:#ffc999;
+
+.threadHead {
+    background-color: #4690b0;
+    color:white;
 }
-.threadUser{
-    text-align:right;
-    margin:5%;
+
+.threadUser {
+    text-align: right;
+    margin: 5%;
 }
-.italic{
-    font-style:italic;
+
+.italic {
+    font-style: italic;
 }
-.eachPost:nth-child(odd){
-    background-color:#fff1e6;
+
+.eachPost:nth-child(odd) {
+    background-color: #fff1e6;
 }
-.postUser{
-    display:inline-block;
+
+.postUser {
+    display: inline-block;
+    text-align: left;
+    width: 15%;
+}
+
+.postBody {
+   
+}
+
+.eachThread {
+    
+    margin-left:10%;
+}
+.categoryLinks{
     text-align:left;
-    width:15%;
+    margin-left:20%;
+    font-size:2em;
 }
-.postBody{
-    display:inline-block;
-    width:70%;
-    vertical-align:top;
-}
-.eachThread:nth-child(odd){
-    background-color:#fff1e6;
+.addThreadBtn{
+    margin-bottom:5%;
+    margin-top:1%;
 }

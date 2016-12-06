@@ -5,26 +5,24 @@
 }
 
 <div class="threadHead">
-    <h2>View All Posts in @Model.SelectedThread.ThreadName</h2>
+    <h2>@Model.SelectedThread.ThreadName</h2>
 
     <div class="threadUser">
-        <p><span class="italic">posted by:</span>@Model.SelectedThread.Username <span class="italic">on</span>@Model.SelectedThread.ThreadDate</p>
+        <p><span class="italic">posted by:</span>@Model.SelectedThread.Username <span class="italic">on </span>@Model.SelectedThread.ThreadDate</p>
     </div>
 </div>
 
+<table class="table table-striped">
+    @foreach (var post in Model.AllPostsInThread)
+    {
+    <tr class="eachPost">
 
-@foreach (var post in Model.AllPostsInThread)
-{
-<div class="eachPost" >
-    <div class="postUser">
-    @post.Username
-    @post.PostDate
-    </div>
-
-    <div class="postBody">@post.PostBody</div>
-</div>
-
-    <button>Add a new post!</button>
-
-}
+        <td class="postBody">@post.PostBody</td>
+        <td></td>
+        <td></td>
+        <td class="postUser"><span class="italic">posted by:</span>@post.Username <span class="italic">on </span>@post.PostDate</td>
+    </tr>
+    }
+</table>
+<button>Add a new post!</button>
 
