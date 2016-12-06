@@ -1,4 +1,4 @@
-﻿@model List<Capstone.Web.Models.BookModel>
+﻿@model List<String>
 @{
     ViewBag.Title = "New Author List";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,7 +15,7 @@
 
         <div class="searchResultListItem">
 
-            <h3>@Model[i].Author</h3>
+            <h3>@Model[i]</h3>
 
 
         </div>

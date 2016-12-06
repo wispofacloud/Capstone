@@ -175,15 +175,15 @@ namespace Capstone.Web.Models
 
         }
 
-        public List<BookModel> GetNewAuthorList()
+        public List<String> GetNewAuthorList()
         {
-            List<BookModel> output = new List<BookModel>();
+            List<String> authorsNames = new List<String>();
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string sql = "select * from books where author not in(select author from books where dateAdded < @threshold) Order by author;";
+                    string sql = "select distinct author from books where author not in(select author from books where dateAdded < @threshold) Order by author;";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@threshold", DateTime.Now.AddDays(-30));
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -191,17 +191,9 @@ namespace Capstone.Web.Models
 
                     while (reader.Read())
                     {
-                        output.Add(new BookModel()
-                        {
-                            BookID = Convert.ToInt32(reader["bookID"]),
-                            Title = Convert.ToString(reader["title"]),
-                            Author = Convert.ToString(reader["author"]),
-                            MainCharacter = Convert.ToString(reader["mainCharacter"]),
-                            Setting = Convert.ToString(reader["setting"]),
-                            Genre = Convert.ToString(reader["genre"]),
-                            DateAdded = Convert.ToDateTime(reader["dateAdded"]),
-                            ImageLink = Convert.ToString(reader["imageLink"])
-                        });
+                        string author = Convert.ToString(reader["author"]);
+                        authorsNames.Add(author);
+
                     }
                 }
             }
@@ -209,7 +201,7 @@ namespace Capstone.Web.Models
             {
                 e.Message.ToString();
             }
-            return output;
+            return authorsNames;
         }
     }
 }

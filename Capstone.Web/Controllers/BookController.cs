@@ -115,7 +115,7 @@ namespace Capstone.Web.Controllers
         //Get: Get New Author List
         public ActionResult NewAuthorList()
         {
-            List<BookModel> model = new List<BookModel>();
+            List<String> model = new List<String>();
             model = booksDAL.GetNewAuthorList();
             return View("NewAuthorList", model);
         }
