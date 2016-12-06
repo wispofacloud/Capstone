@@ -2,8 +2,10 @@
 
 @if (Model.Review != null)
 {
-    <h4>@Model.Title Review</h4>
-    <p>@Model.Review</p>
+    <div id="reviewHeader">
+        <h3 id="reviewHeadline">Review</h3>
+    </div>
+    <h4 id="reviewText">@Model.Review</h4>
 }
 
 
