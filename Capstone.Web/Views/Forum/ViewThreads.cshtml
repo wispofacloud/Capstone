@@ -10,8 +10,9 @@
 {
     <div class="eachThread">
         @Html.ActionLink(Model[i].ThreadName, "ViewPosts", "Forum", new { threadID = Model[i].ThreadID }, null)
-    </div>
-    <div class="threadUser">
-        <p><span class="italic">posted by:</span>@Model[i].UserID <span class="italic">on</span>@Model[i].ThreadDate</p>
+
+        <div class="threadUser">
+            <p><span class="italic">posted by:</span>@Model[i].UserID <span class="italic">on</span>@Model[i].ThreadDate</p>
+        </div>
     </div>
 }
