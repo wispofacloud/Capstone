@@ -1,24 +1,14 @@
 ﻿@model Capstone.Web.Models.PostResultsViewModel
 
-<div class="threadHead">
-    <h2>View All Posts in @Model.SelectedThread.ThreadName</h2>
+<table class="table table-striped">
+    @foreach (var post in Model.AllPostsInThread)
+    {
+        <tr class="eachPost">
 
-    <div class="threadUser">
-        <p><span class="italic">posted by:</span>@Model.SelectedThread.Username <span class="italic">on</span>@Model.SelectedThread.ThreadDate</p>
-    </div>
-</div>
-
-
-@foreach (var post in Model.AllPostsInThread)
-{
-    <div class="eachPost">
-        <div class="postUser">
-            @post.Username
-            @post.PostDate
-        </div>
-
-        <div class="postBody">@post.PostBody</div>
-    </div>
-
-
-}
+            <td class="postBody">@post.PostBody</td>
+            <td></td>
+            <td></td>
+            <td class="postUser"><span class="italic">posted by:</span>@post.Username <span class="italic">on </span>@post.PostDate</td>
+        </tr>
+    }
+</table>

@@ -6,17 +6,20 @@
 
 <h2>Echo Books Forum</h2>
 @* needs logic so only users can do this or authorization filters*@
+
 @for (int i = 0; i < 1; i++)
 {
-<button>@Html.ActionLink("Create a new thread", "AddAThread", "Forum", new { categoryID = Model[i].CategoryID }, null)</button>
+    <button class="addThreadBtn">@Html.ActionLink("Create a new thread", "AddAThread", "Forum", new { categoryID = Model[i].CategoryID }, null)</button>
 }
-@for (int i = 0; i < Model.Count; i++)
-{
-    <div class="eachThread">
-        @Html.ActionLink(Model[i].ThreadName, "ViewPosts", "Forum", new { threadID = Model[i].ThreadID }, null)
+<table class="table table-striped">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td class="eachThread">@Html.ActionLink(Model[i].ThreadName, "ViewPosts", "Forum", new { threadID = Model[i].ThreadID }, null)</td>
 
-        <div class="threadUser">
-            <p><span class="italic">posted by:</span>@Model[i].UserID <span class="italic">on</span>@Model[i].ThreadDate</p>
-        </div>
-    </div>
-}
+
+            <td><span class="italic">posted by:</span>@Model[i].UserID <span class="italic">on </span>@Model[i].ThreadDate</td>
+
+        </tr>
+    }
+</table>

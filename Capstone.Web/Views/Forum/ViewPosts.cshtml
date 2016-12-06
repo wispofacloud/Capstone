@@ -4,6 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="threadHead">
+    <h2>@Model.SelectedThread.ThreadName</h2>
+
+    <div class="threadUser">
+        <p><span class="italic">posted by:</span>@Model.SelectedThread.Username <span class="italic">on </span>@Model.SelectedThread.ThreadDate</p>
+    </div>
+</div>
+
 @Html.Partial("_PartialPostsView", Model);
 
 @using (Html.BeginForm("SubmitPost", "Forum", FormMethod.Post))
@@ -23,4 +31,7 @@
     </div>
     <button>Submit!</button>
 }
+
+
+
 
