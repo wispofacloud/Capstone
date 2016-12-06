@@ -9,7 +9,7 @@
 @for (int i = 0; i < Model.Count; i++)
 {
     <ul>
-      <li><h3>@Html.ActionLink(Model[i].CategoryName, "ViewThreads", "Forum", new { categoryID = Model[i].CategoryID }, null)</h3></li>
+      <li class="categoryLinks">@Html.ActionLink(Model[i].CategoryName, "ViewThreads", "Forum", new { categoryID = Model[i].CategoryID }, null)</li>
     </ul>
 
 

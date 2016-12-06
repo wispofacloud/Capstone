@@ -46,5 +46,19 @@ namespace Capstone.Web.Tests.DALTests
             Assert.IsNotNull(model);
             Assert.AreEqual(1, model.BookID);
         }
+
+        [TestMethod]
+        public void TestSubmitBookReview()
+        {
+            ReviewsSqlDAL dal = new ReviewsSqlDAL();
+            ReviewModel model = new ReviewModel();
+            model.UserID = 1;
+            model.BookID = 2;
+            model.Review = "This was a great book!";
+
+            bool isSubmitted = dal.SubmitBookReview(model);
+
+            Assert.IsTrue(isSubmitted);
+        }
     }
 }

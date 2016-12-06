@@ -9,5 +9,6 @@ namespace Capstone.Web.Models
     {
         public ThreadModel SelectedThread { get; set; }
         public List<PostModel> AllPostsInThread = new List<PostModel>();
+        public PostModel NewPost { get; set; }
     }
 }
