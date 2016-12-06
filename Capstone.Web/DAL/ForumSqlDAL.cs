@@ -98,7 +98,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = "Select threadID, userID, categoryID, threadName, users.username from threads join users on users.userID = threads.userID where threadID = @threadID";
+                    string sql = "Select threads.threadID, threads.userID, threads.categoryID, threads.threadName, users.username from threads join users on users.userID = threads.userID where threadID = @threadID";
                     SqlCommand cmd2 = new SqlCommand(sql, conn);
                     cmd2.Parameters.AddWithValue("@threadID", threadId);
                     SqlDataReader reader = cmd2.ExecuteReader();

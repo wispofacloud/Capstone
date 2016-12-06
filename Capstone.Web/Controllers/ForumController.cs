@@ -43,5 +43,7 @@ namespace Capstone.Web.Controllers
             AllCategories = forumDAL.GetAllCategories();
             return View("ViewCategories",AllCategories);
         }
+
+        public ActionResult 
     }
 }
