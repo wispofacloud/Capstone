@@ -13,11 +13,9 @@
         @Html.TextAreaFor(t => t.ThreadName, new { style = "width:60%;" })
     </div>
     <div>
-        @Html.HiddenFor(t =>t.UserID)
-        @Html.HiddenFor(t=>t.CategoryID)
-    </div>
-    <div>
-        @Html.HiddenFor(t=>t.ThreadDate)
+        @Html.HiddenFor(t => t.UserID)
+        @Html.HiddenFor(t => t.CategoryID)
+        @Html.HiddenFor(t => t.ThreadDate)
     </div>
     <button>Let's talk about it!</button>
 }

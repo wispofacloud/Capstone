@@ -11,6 +11,8 @@ else
     {
         <li>@Html.ActionLink("Add New Title", "AddNewBook", "Book")</li>
     }
+    <li>@Html.ActionLink("Forum","ViewCategories","Forum")</li>
     <li>@Html.ActionLink($"Hello, {Model.Username}!", "ReadingList", "MyEchoBooks")</li>
     <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
+
 }
