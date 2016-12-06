@@ -1,8 +1,4 @@
 ﻿@model List<String>
-@{
-    ViewBag.Title = "New Author List";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
 <h2>Newly Added Authors</h2>
 
@@ -15,9 +11,9 @@
 
         <div class="searchResultListItem">
 
-            <h3>@Model[i]</h3>
-
-
+            
+            <h3>This is something!!</h3>
+            <h3>@Html.ActionLink(Model[i], "SearchResults", "Book", new { searchType = "Author", SearchValue = Model[i] }, null)</h3>
         </div>
     </div>
 
