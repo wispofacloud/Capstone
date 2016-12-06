@@ -11,10 +11,12 @@ namespace Capstone.Web.Controllers
     public class ForumController : EchoController
     {
         private IForumDAL forumDAL;
+        private IUsersDAL usersDAL;
 
-        public ForumController(IForumDAL forumDAL)
+        public ForumController(IForumDAL forumDAL, IUsersDAL usersDAL)
         {
             this.forumDAL = forumDAL;
+            this.usersDAL = usersDAL;
         }
         // GET: Forum
         
@@ -44,9 +46,13 @@ namespace Capstone.Web.Controllers
             return View("ViewCategories",AllCategories);
         }
         //get
-        public ActionResult AddAThread()
+        public ActionResult AddAThread(int categoryID)
         {
             ThreadModel model = new ThreadModel();
+            model.CategoryID = categoryID;
+            UserModel user = usersDAL.GetUser(base.CurrentUser);
+            model.UserID = user.UserID;
+
             return View("SubmitThread", model);
         }
 
