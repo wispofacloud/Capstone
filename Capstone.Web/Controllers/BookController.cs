@@ -117,7 +117,7 @@ namespace Capstone.Web.Controllers
         {
             List<BookModel> model = new List<BookModel>();
             model = booksDAL.GetNewAuthorList();
-            return View("", model);
+            return View("NewAuthorList", model);
         }
 
         //GET: Get Submit Book Review View

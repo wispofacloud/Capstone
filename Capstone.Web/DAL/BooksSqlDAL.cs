@@ -183,7 +183,7 @@ namespace Capstone.Web.Models
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string sql = "select * from books where author not (select author where dateAdded > @threshold) Order by author;";
+                    string sql = "select * from books where author not in(select author from books where dateAdded < @threshold) Order by author;";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@threshold", DateTime.Now.AddDays(-30));
                     SqlDataReader reader = cmd.ExecuteReader();
