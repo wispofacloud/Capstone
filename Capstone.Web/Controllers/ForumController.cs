@@ -64,5 +64,25 @@ namespace Capstone.Web.Controllers
             AllThreads = forumDAL.GetThreadsByCategory(model.CategoryID);
             return View("ViewThreads", AllThreads);
         }
+
+        //get
+        public ActionResult AddAPost(int threadID)
+        {
+            PostModel model = new PostModel();
+            model.ThreadID = threadID;
+            UserModel user = usersDAL.GetUser(base.CurrentUser);
+            model.UserID = user.UserID;
+            return View("SubmitPost", model);
+        }
+
+        [HttpPost]
+        public ActionResult AddAPost(PostModel model)
+        {
+            forumDAL.SubmitPost(model);
+            List<PostModel> AllPosts = new List<PostModel>();
+            AllPosts = forumDAL.GetAllPosts(model.ThreadID);
+            return View("ViewPosts", AllPosts);
+        }
+
     }
 }
