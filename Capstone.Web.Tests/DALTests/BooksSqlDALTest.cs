@@ -85,5 +85,15 @@ namespace Capstone.Web.Tests.DALTests
             Assert.IsNotNull(bookByID);
             Assert.AreEqual("The Test Title", bookByID.Title.ToString());
         }
+
+        [TestMethod]
+        public void TestAddNewBook()
+        {
+            BooksSqlDAL dal = new BooksSqlDAL();
+            BookModel model = new BookModel();
+            model.Author = "Stuk, Gina";
+            model.Title = "";
+
+        }
     }
 }

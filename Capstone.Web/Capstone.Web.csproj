@@ -216,6 +216,7 @@
     <Content Include="Views\Forum\SubmitPost.cshtml" />
     <Content Include="Views\Book\NewAuthorList.cshtml" />
     <Content Include="Views\Forum\ViewCategories.cshtml" />
+    <Content Include="Views\Shared\_PartialPostsView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

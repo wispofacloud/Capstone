@@ -4,27 +4,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="threadHead">
-    <h2>View All Posts in @Model.SelectedThread.ThreadName</h2>
+@Html.Partial("_PartialPostsView", Model);
 
-    <div class="threadUser">
-        <p><span class="italic">posted by:</span>@Model.SelectedThread.Username <span class="italic">on</span>@Model.SelectedThread.ThreadDate</p>
-    </div>
-</div>
-
-
-@foreach (var post in Model.AllPostsInThread)
+@using (Html.BeginForm("SubmitPost", "Forum", FormMethod.Post))
 {
-<div class="eachPost" >
-    <div class="postUser">
-    @post.Username
-    @post.PostDate
+    <div>
+        @Html.Label("postBody", "Title")
+        @Html.TextAreaFor(p => p.NewPost.PostBody, new { style = "width:60%;" })
     </div>
-
-    <div class="postBody">@post.PostBody</div>
-</div>
-
-    <button>Add a new post!</button>
-
+    <div>
+        @Html.HiddenFor(p => p.NewPost.UserID)
+    </div>
+    <div>
+        @Html.HiddenFor(p => p.NewPost.PostDate)
+    </div>
+    <div>
+        @Html.HiddenFor(p => p.NewPost.ThreadID)
+    </div>
+    <button>Submit!</button>
 }
 
