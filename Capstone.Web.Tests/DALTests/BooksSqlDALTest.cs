@@ -93,7 +93,17 @@ namespace Capstone.Web.Tests.DALTests
             BookModel model = new BookModel();
             model.Author = "Stuk, Gina";
             model.Title = "";
+            model.MainCharacter = "Detective Brandon";
+            model.Setting = "Cleveland, OH";
+            model.Genre = "Mystery";
+            model.Description = "Lorem";
+            model.ImageLink = "https://images-na.ssl-images";
+            
 
+            bool isAdded = dal.AddNewBook(model);
+
+            
+            Assert.IsTrue(isAdded);
         }
 
         [TestMethod]
