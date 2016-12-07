@@ -83,7 +83,10 @@ alter table posts add foreign key (threadID) references threads(threadID);
 
 
 	insert into categories (categoryName) Values ('Recommendations Needed'), ('Plot Reviews'), ('Fan Fiction'), ('Off Topic');
-
+	insert into threads Values(1,1,'I need a great beach read','2016-12-06');
+	insert into posts Values(1,1,'Anything by Amelia', '2016-12-06');
+	insert into posts Values(1,1,'Have you thought about Mr. Willowby?', '2016-12-6');
+	
 	INSERT INTO books (title, author, mainCharacter, setting, genre, dateAdded, description, imageLink)
     VALUES ('Lily the Cat', 'Somerville, Amelia', 'Detective Brandon', 'Cleveland, OH', 'Pet Mystery', '08-17-2016', 'Lorem ipsum dolor sit amet, et his fuisset perpetua dignissim, ad justo elitr oporteat pri. Quo minim graece ad, scribentur disputationi eu qui. Ad vim integre imperdiet, in ubique torquatos nec. Democritum efficiendi vim in, pro munere voluptatum an. Sed ei dolorum indoctum, est sonet vivendum cu.','https://images-na.ssl-images-amazon.com/images/I/51PxQCRCx0L._AC_US240_FMwebp_QL65_.jpg'),
     ('Fly Over the Moon', 'Robellard, Nora', 'Nancy Draw', 'Japan', 'Travel Mystety', '09-12-2016', 'Lorem ipsum dolor sit amet, et his fuisset perpetua dignissim, ad justo elitr oporteat pri. Quo minim graece ad, scribentur disputationi eu qui. Ad vim integre imperdiet, in ubique torquatos nec. Democritum efficiendi vim in, pro munere voluptatum an. Sed ei dolorum indoctum, est sonet vivendum cu.', 'https://images-na.ssl-images-amazon.com/images/I/51PxQCRCx0L._AC_US240_FMwebp_QL65_.jpg'),
