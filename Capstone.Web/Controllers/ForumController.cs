@@ -84,6 +84,7 @@ namespace Capstone.Web.Controllers
         public ActionResult AddAPost(PostResultsViewModel model)
         {
             forumDAL.SubmitPost(model);
+            ThreadModel selectedThread = new ThreadModel();
             List<PostModel> AllPosts = new List<PostModel>();
             AllPosts = forumDAL.GetAllPosts(model.SelectedThread.ThreadID);
             model.AllPostsInThread = AllPosts;

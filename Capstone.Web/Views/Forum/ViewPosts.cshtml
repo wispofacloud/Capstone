@@ -29,6 +29,7 @@
     <div>
         @Html.HiddenFor(p => p.NewPost.ThreadID)
         @Html.HiddenFor(p => p.SelectedThread.ThreadID)
+        @Html.HiddenFor(p => p.SelectedThread.ThreadName)
     </div>
     <button>Submit!</button>
 }
