@@ -249,6 +249,7 @@ vertical-align:top;
 .readingListTitle {
     font-weight: 600;
     font-size: 1.05em;
+
 }
 
 .readingListAuthor {
@@ -257,17 +258,20 @@ vertical-align:top;
 
 .readingListImg {
     width: 25%;
-    margin-left: 4%;
+    margin-left: 20%;
     margin-bottom: 5%;
     display: inline-block;
     clear: both;
 }
 
+table > tbody > tr > td {
+     vertical-align: middle;
+     
+}
 .readingListDesc {
-    display: inline-block;
-    width: 40%;
-    vertical-align: top;
+
     padding: 5%;
+
 }
 
 .threadHead {
