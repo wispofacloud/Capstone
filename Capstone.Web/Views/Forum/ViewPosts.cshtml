@@ -8,11 +8,11 @@
     <h2>@Model.SelectedThread.ThreadName</h2>
 
     <div class="threadUser">
-        <p><span class="italic">posted by:</span>@Model.SelectedThread.Username <span class="italic">on </span>@Model.SelectedThread.ThreadDate</p>
+        <p><span class="italic">started by:</span>@Model.SelectedThread.Username <span class="italic">on </span>@Model.SelectedThread.ThreadDate</p>
     </div>
 </div>
 
-@Html.Partial("_PartialPostsView", Model);
+@Html.Partial("_PartialPostsView", Model)
 
 @using (Html.BeginForm("AddAPost", "Forum", FormMethod.Post))
 {
@@ -29,6 +29,7 @@
     <div>
         @Html.HiddenFor(p => p.NewPost.ThreadID)
         @Html.HiddenFor(p => p.SelectedThread.ThreadID)
+        @Html.HiddenFor(p => p.SelectedThread.ThreadName)
     </div>
     <button>Submit!</button>
 }
