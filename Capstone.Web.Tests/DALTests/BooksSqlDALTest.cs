@@ -95,5 +95,27 @@ namespace Capstone.Web.Tests.DALTests
             model.Title = "";
 
         }
+
+        [TestMethod]
+        public void TestGetNewBookList()
+        {
+            BooksSqlDAL booksSqlDal = new BooksSqlDAL();
+            List<BookModel> booksList = booksSqlDal.GetNewBookList();
+
+            Assert.IsNotNull(booksList);
+            Assert.AreEqual(1, booksList.Count);
+
+        }
+
+        [TestMethod]
+        public void TestGetNewAuthorList()
+        {
+            BooksSqlDAL booksSqldal = new BooksSqlDAL();
+            List<String> authorList = booksSqldal.GetNewAuthorList();
+
+            Assert.IsNotNull(authorList);
+            Assert.AreEqual(1, authorList.Count); 
+
+        }
     }
 }
