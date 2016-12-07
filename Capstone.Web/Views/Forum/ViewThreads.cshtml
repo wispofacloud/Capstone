@@ -6,7 +6,7 @@
 
 <h2>Echo Books Forum</h2>
 
-    <button class="addThreadBtn">@Html.ActionLink("Create a new thread", "AddAThread", "Forum", new { categoryID = Convert.ToInt32(Request.QueryString["categoryID"]) }, null)</button>
+    <button class="btn-warning addThreadBtn">@Html.ActionLink("Create a new thread", "AddAThread", "Forum", new { categoryID = Convert.ToInt32(Request.QueryString["categoryID"]) }, null)</button>
 <table class="table table-striped">
     @for (int i = 0; i < Model.Count; i++)
     {

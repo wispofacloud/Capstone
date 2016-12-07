@@ -4,37 +4,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="echoBooks">My Echo Books</h2>
+<h2 class="echoBooks">My Echo Books Reading List</h2>
 
 <h3 class="echoBooks">Welcome, @Model.CurrentUser.Username</h3>
 
-@foreach (var book in Model.ReadingList)
-{
-    <div>
-        <div class="readingListImg">
-            @if (string.IsNullOrEmpty(book.ImageLink))
-            {
-                <img class="detailImg" src="@Url.Content("~/Content/echobookslogo.png")" />
-            }
-            else
-            {
-                <img class="detailImg" src="@book.ImageLink" />
-            }
-        </div>
-
-        <div class="readingListDesc">
-            <p><span class="readingListTitle">@book.Title</span><span class="readingListAuthor"> by @book.Author</span></p>
-             @if(book.HasRead)
-             {
-                 <p class="hasRead">You have read this book!</p>
-             }
-             else
-             {
-                 <p class="toRead">On your To-Be-Read Shelf!</p>
-                <button>@Html.ActionLink("I've read it!", "ChangeToRead", new { bookID = book.BookID })</button>
-             }
-        </div>
-    </div>
 
 
-}
+    <table class="table table-striped">
+
+    <tbody>
+        @foreach (var book in Model.ReadingList)
+        {
+            <tr >
+                <td>
+                    @if (string.IsNullOrEmpty(book.ImageLink))
+                {
+                        <img class="img-responsive" src="@Url.Content("~/Content/echobookslogo.png")" />
+                    }
+                    else
+                    {
+                        <img class="img-responsive" src="@book.ImageLink"/>
+                    }
+                </td>
+
+                <td>
+                    <p class="readingListDesc"><span class="readingListTitle">@book.Title</span><span class="readingListAuthor"> by @book.Author</span></p>
+                </td>
+                <td>
+                    @if (book.HasRead)
+                {
+                        <p><span class="glyphicon glyphicon-ok"></span></p>
+
+                    }
+                    else
+                    {       
+                        <a href="@Url.Action("ChangeToRead", "MyEchoBooks", new { bookID = book.BookID })" class="btn btn-warning">Mark as Read&nbsp;<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></a>
+
+                    }
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

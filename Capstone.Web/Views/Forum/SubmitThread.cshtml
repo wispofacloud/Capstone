@@ -10,13 +10,13 @@
 {
     <div>
         @Html.Label("threadName", "Enter a new topic")
-        @Html.TextAreaFor(t => t.ThreadName, new { style = "width:60%;" })
+        @Html.TextAreaFor(t => t.ThreadName, new { style = "width:40%" })
     </div>
     <div>
         @Html.HiddenFor(t => t.UserID)
         @Html.HiddenFor(t => t.CategoryID)
         @Html.HiddenFor(t => t.ThreadDate)
     </div>
-    <button>Let's talk about it!</button>
+    <button class="btn-warning">Let's talk about it!</button>
 }
 
