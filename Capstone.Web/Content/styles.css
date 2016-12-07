@@ -2,7 +2,7 @@
     background-color: #e77137;
     padding-left: 2%;
     padding-right: 2%;
-    padding-top: 1%;
+    /*padding-top: 1%;*/
 }
 
 header {
@@ -30,20 +30,24 @@ header {
     margin: auto;
     width: 60%;
     height: auto;
+    vertical-align:top;
 }
 
+
 #newAuthorList {
-    margin-top: 3%;
+    
     padding: 3%;
     outline: 5px solid #00568c;
     outline-offset: -35px;
-    margin-left:0%;
-    margin-right:15%;
-    margin-bottom:3%
+    margin-left: 0%;
+    margin-right: 15%;
+    margin-bottom: 3%;
+    vertical-align:top;
+    background-color:white;
 }
 
 #menuLinks {
-    //color: #00568c;
+    color: #00568c;
     font-weight: bold;
 }
 
@@ -68,7 +72,10 @@ h2 {
     padding-top: 3%;
 }
 
-h3 {
+h1 {
+    padding-top:2%;
+    padding-bottom:3%;
+    font-weight:bold;
 }
 
 p {
@@ -115,10 +122,11 @@ li {
 
 .detailImg {
     display: inline-block;
-    box-shadow: 40px;
-    width: 25%;
+    box-shadow: 10px 10px;
+    width: 15%;
     vertical-align: top;
     margin: 3%;
+    margin-left:20px;
 }
 
 .detailDiv {
@@ -127,7 +135,10 @@ li {
     text-align: left;
     margin: 3%;
     vertical-align: top;
-    margin-top: 5%;
+    
+}
+.eachBook{
+vertical-align:top;
 }
 
 #addToList {
@@ -187,7 +198,7 @@ li {
     padding-top: 1%;
 }
 
-.btn-warning{
+.btn-warning {
     margin-top: 4%;
 }
 
@@ -203,8 +214,9 @@ li {
     font-weight: bold;
     color: #00568c;
 }
-.field-validation-error{
-    color:red;
+
+.field-validation-error {
+    color: red;
 }
 
 #thanksImg {
@@ -299,4 +311,3 @@ li {
     margin-bottom: 5%;
     margin-top: 1%;
 }
-
