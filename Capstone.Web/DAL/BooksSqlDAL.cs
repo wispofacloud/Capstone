@@ -14,10 +14,10 @@ namespace Capstone.Web.Models
 
         private Dictionary<string, string> Choices = new Dictionary<string, string>()
         {
-            { "Author", "SELECT * FROM books WHERE author like '%{1}%'"},
-            { "Title","SELECT * FROM books WHERE title like '%{1}%'"},
-            { "Setting","SELECT * FROM books WHERE setting like '%{1}%'"},
-            {"Character", "SELECT * FROM books WHERE mainCharacter like '%{1}%'"}
+            { "Author", "SELECT Top 50 * FROM books WHERE author like '%{1}%'"},
+            { "Title","SELECT Top 50 * FROM books WHERE title like '%{1}%'"},
+            { "Setting","SELECT Top 50* FROM books WHERE setting like '%{1}%'"},
+            {"Character", "SELECT Top 50 * FROM books WHERE mainCharacter like '%{1}%'"}
         };
 
         public List<BookModel> GetBooks(string value, string type)
@@ -142,7 +142,7 @@ namespace Capstone.Web.Models
                     conn.Open();
 
 
-                    string sql = "Select * from books where dateAdded > @threshold Order by author;";
+                    string sql = "Select top 50 * from books where dateAdded > @threshold Order by author;";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@threshold", DateTime.Now.AddDays(-30));
                     SqlDataReader reader = cmd.ExecuteReader();

@@ -28,7 +28,7 @@
     <div id="addToList">
         @if (!Model.IsBookInList && Model.CurrentUser != null)
         {
-            <button> @Html.ActionLink("Add to My Echo Books reading list", "AddToReadingList", "Book", new { bookID = Model.CurrentBook.BookID, userID = Model.CurrentUser.UserID }, null)</button>
+            <button class="btn-warning"> @Html.ActionLink("Add to My Echo Books reading list", "AddToReadingList", "Book", new { bookID = Model.CurrentBook.BookID, userID = Model.CurrentUser.UserID }, null)</button>
         }
         else if (Model.CurrentUser != null)
         {
@@ -46,6 +46,6 @@
 <div>
 @if (Model.CurrentUser != null && Model.CurrentUser.IsAdmin)
 {
-    <button> @Html.ActionLink("Write A Review", "SubmitBookReview", "Book", new { id = Model.CurrentBook.BookID }, null)</button>
+    <button class="btn-warning"> @Html.ActionLink("Write A Review", "SubmitBookReview", "Book", new { id = Model.CurrentBook.BookID }, null)</button>
 }
 </div>

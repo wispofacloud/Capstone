@@ -39,7 +39,7 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ViewThreads(int categoryID)
         {
-            //fix so we can get username
+
             List<ThreadModel> AllThreads = new List<ThreadModel>();
             AllThreads = forumDAL.GetThreadsByCategory(categoryID);            
             return View("ViewThreads", AllThreads);
@@ -85,16 +85,16 @@ namespace Capstone.Web.Controllers
         public ActionResult AddAPost(PostResultsViewModel model)
         {
             forumDAL.SubmitPost(model);
-            ThreadModel selectedThread = new ThreadModel();
+            ThreadModel selectedThread = forumDAL.GetThreadByThreadID(model.SelectedThread.ThreadID);
             List<PostModel> AllPosts = new List<PostModel>();
-            AllPosts = forumDAL.GetAllPosts(model.SelectedThread.ThreadID);
+            AllPosts = forumDAL.GetAllPosts(selectedThread.ThreadID);
             model.AllPostsInThread = AllPosts;
             UserModel user = usersDAL.GetUser(base.CurrentUser);
             model.NewPost.UserID = user.UserID;
             model.NewPost.Username = user.Username;
-            model.NewPost.PostBody = "";
-            
-            return View("ViewPosts", model);
+            //model.NewPost.PostBody = "";
+
+            return RedirectToAction("ViewPosts", new { threadID = model.SelectedThread.ThreadID });
         }
 
     }

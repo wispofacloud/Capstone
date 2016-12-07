@@ -6,9 +6,9 @@
 
 <div class="threadHead">
     <h2>@Model.SelectedThread.ThreadName</h2>
-
+    @Html.Hidden(Model.SelectedThread.ThreadID.ToString())
     <div class="threadUser">
-        <p><span class="italic">started by:</span>@Model.SelectedThread.Username <span class="italic">on </span>@Model.SelectedThread.ThreadDate</p>
+        <p><span class="italic">started by: </span>@Model.SelectedThread.Username<span class="italic"> on </span>@Model.SelectedThread.ThreadDate</p>
     </div>
 </div>
 
@@ -31,7 +31,7 @@
         @Html.HiddenFor(p => p.SelectedThread.ThreadID)
         @Html.HiddenFor(p => p.SelectedThread.ThreadName)
     </div>
-    <button>Submit!</button>
+    <button class="btn-warning">Submit!</button>
 }
 
 

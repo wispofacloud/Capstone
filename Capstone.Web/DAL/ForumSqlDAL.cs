@@ -23,7 +23,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = "Select posts.postID, posts.threadID, posts.userID, posts.postBody, posts.postDate, users.username, threads.threadname from posts join users on posts.userID = users.userID join threads on threads.threadID = posts.threadID where posts.threadID = @threadID;";
+                    string sql = "Select posts.postID, posts.threadID, posts.userID, posts.postBody, posts.postDate, users.username, threads.threadname, threads.threadDate from posts join users on posts.userID = users.userID join threads on threads.threadID = posts.threadID where posts.threadID = @threadID;";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@threadID", threadId);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -39,6 +39,7 @@ namespace Capstone.Web.DAL
                             PostDate = Convert.ToDateTime(reader["postDate"]),
                             Username = Convert.ToString(reader["username"]),
                             ThreadName = Convert.ToString(reader["threadname"])
+                            
 
                         });
                     }
@@ -64,6 +65,7 @@ namespace Capstone.Web.DAL
                     string sql = "Select threads.threadID, threads.userID, threads.categoryID, threads.threadName, threads.threadDate, users.username from threads join users on users.userID = threads.userID where categoryID = @categoryID;";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@categoryID", categoryID);
+                    
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -98,7 +100,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    string sql = "Select threads.threadID, threads.userID, threads.categoryID, threads.threadName, users.username from threads join users on users.userID = threads.userID where threadID = @threadID";
+                    string sql = "Select threads.threadID, threads.userID, threads.categoryID, threads.threadName, threads.threadDate, users.username from threads join users on users.userID = threads.userID where threadID = @threadID";
                     SqlCommand cmd2 = new SqlCommand(sql, conn);
                     cmd2.Parameters.AddWithValue("@threadID", threadId);
                     SqlDataReader reader = cmd2.ExecuteReader();
@@ -110,7 +112,7 @@ namespace Capstone.Web.DAL
                         thread.CategoryID = Convert.ToInt32(reader["categoryID"]);
                         thread.ThreadName = Convert.ToString(reader["threadName"]);
                         thread.Username = Convert.ToString(reader["username"]);
-
+                        thread.ThreadDate = Convert.ToDateTime(reader["threadDate"]);
                     }
                     return thread;
                 }
@@ -135,7 +137,7 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@threadID", postResults.NewPost.ThreadID);
                     cmd.Parameters.AddWithValue("@userID", postResults.NewPost.UserID);
                     cmd.Parameters.AddWithValue("@postBody", postResults.NewPost.PostBody);
-                    cmd.Parameters.AddWithValue("@postDate", DateTime.Now.ToShortDateString());
+                    cmd.Parameters.AddWithValue("@postDate", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
                     rowsAffected = cmd.ExecuteNonQuery();
                 }
             }
@@ -160,7 +162,7 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@userID", thread.UserID);
                     cmd.Parameters.AddWithValue("@categoryID", thread.CategoryID);
                     cmd.Parameters.AddWithValue("@threadName", thread.ThreadName);
-                    cmd.Parameters.AddWithValue("@threadDate", DateTime.Now.ToShortDateString());
+                    cmd.Parameters.AddWithValue("@threadDate", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
 
                     rowsAffected = cmd.ExecuteNonQuery();
                 }

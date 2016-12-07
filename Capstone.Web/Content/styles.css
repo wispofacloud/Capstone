@@ -28,12 +28,22 @@ header {
 
 #indexImg {
     margin: auto;
-    width: 40%;
+    width: 60%;
     height: auto;
 }
 
+#newAuthorList {
+    margin-top: 3%;
+    padding: 3%;
+    outline: 5px solid #00568c;
+    outline-offset: -35px;
+    margin-left:0%;
+    margin-right:15%;
+    margin-bottom:3%
+}
+
 #menuLinks {
-    color: #00568c;
+    //color: #00568c;
     font-weight: bold;
 }
 
@@ -177,7 +187,7 @@ li {
     padding-top: 1%;
 }
 
-#reviewSubmit {
+.btn-warning{
     margin-top: 4%;
 }
 
@@ -191,7 +201,10 @@ li {
     display: block;
     padding-top: 3%;
     font-weight: bold;
-    color: darkred;
+    color: #00568c;
+}
+.field-validation-error{
+    color:red;
 }
 
 #thanksImg {
@@ -251,7 +264,7 @@ table > tbody > tr > td {
 
 .threadHead {
     background-color: #4690b0;
-    color:white;
+    color: white;
 }
 
 .threadUser {
@@ -274,19 +287,20 @@ table > tbody > tr > td {
 }
 
 .postBody {
-   
 }
 
 .eachThread {
-    
-    margin-left:10%;
+    margin-left: 10%;
 }
-.categoryLinks{
-    text-align:left;
-    margin-left:20%;
-    font-size:2em;
+
+.categoryLinks {
+    text-align: left;
+    margin-left: 20%;
+    font-size: 2em;
 }
-.addThreadBtn{
-    margin-bottom:5%;
-    margin-top:1%;
+
+.addThreadBtn {
+    margin-bottom: 5%;
+    margin-top: 1%;
 }
+

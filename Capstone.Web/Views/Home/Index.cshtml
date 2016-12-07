@@ -6,9 +6,13 @@
 
 <br />
 <br />
-<h1>Welcome to the World of Mystery at Echo Books!</h1>
-<img id="indexImg" src="~/Content/indexImage.png" alt="Welcome to EchoBooks"/>
+<div class="container-fluid">
+        <h1>Welcome to the World of Mystery at Echo Books!</h1>
 
-<div>@Html.Action("PartialNewAuthorList", "Home") </div>
+        <div class="row">
+            <div class="col-sm-7"><img id="indexImg" class="img-rounded" src="~/Content/indexImage.png" alt="Welcome to EchoBooks"/></div>
+            <div class="col-sm-5">@Html.Action("PartialNewAuthorList", "Home")</div>
+        </div>
+    </div>
 
 
