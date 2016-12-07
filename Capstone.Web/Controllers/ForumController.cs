@@ -29,6 +29,11 @@ namespace Capstone.Web.Controllers
             model.SelectedThread = thread;
             list = forumDAL.GetAllPosts(threadID);
             model.AllPostsInThread = list;
+            UserModel user = usersDAL.GetUser(base.CurrentUser);
+            PostModel newPost = new PostModel();
+            model.NewPost = newPost;
+            model.NewPost.UserID = user.UserID;
+            model.NewPost.ThreadID = thread.ThreadID;
             return View("ViewPosts", model);
         }
 
@@ -76,12 +81,18 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddAPost(PostModel model)
+        public ActionResult AddAPost(PostResultsViewModel model)
         {
             forumDAL.SubmitPost(model);
             List<PostModel> AllPosts = new List<PostModel>();
-            AllPosts = forumDAL.GetAllPosts(model.ThreadID);
-            return View("ViewPosts", AllPosts);
+            AllPosts = forumDAL.GetAllPosts(model.SelectedThread.ThreadID);
+            model.AllPostsInThread = AllPosts;
+            UserModel user = usersDAL.GetUser(base.CurrentUser);
+            model.NewPost.UserID = user.UserID;
+            model.NewPost.Username = user.Username;
+            model.NewPost.PostBody = "";
+            
+            return View("ViewPosts", model);
         }
 
     }

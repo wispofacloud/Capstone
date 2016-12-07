@@ -11,7 +11,7 @@ namespace Capstone.Web.DAL
     public interface IForumDAL
     {
         bool SubmitThread(ThreadModel thread);
-        bool SubmitPost(PostModel post);
+        bool SubmitPost(PostResultsViewModel NewPost);
         List<ThreadModel> GetThreadsByCategory(int categoryID);
         List<PostModel> GetAllPosts(int threadId);
         ThreadModel GetThreadByThreadID(int threadId);

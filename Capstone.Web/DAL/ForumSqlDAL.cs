@@ -122,7 +122,7 @@ namespace Capstone.Web.DAL
             }
         }
 
-        public bool SubmitPost(PostModel post)
+        public bool SubmitPost(PostResultsViewModel postResults)
         {
             int rowsAffected = 0;
             try
@@ -131,14 +131,11 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("Insert into posts Values (@threadID, @userID, @postBody, @postDate, @threadName, @username);", conn);
-                    cmd.Parameters.AddWithValue("@threadID", post.ThreadID);
-                    cmd.Parameters.AddWithValue("@userID", post.UserID);
-                    cmd.Parameters.AddWithValue("@postBody", post.PostBody);
+                    SqlCommand cmd = new SqlCommand("Insert into posts Values (@threadID, @userID, @postBody, @postDate);", conn);
+                    cmd.Parameters.AddWithValue("@threadID", postResults.NewPost.ThreadID);
+                    cmd.Parameters.AddWithValue("@userID", postResults.NewPost.UserID);
+                    cmd.Parameters.AddWithValue("@postBody", postResults.NewPost.PostBody);
                     cmd.Parameters.AddWithValue("@postDate", DateTime.Now.ToShortDateString());
-                    cmd.Parameters.AddWithValue("@threadName", post.ThreadName);
-                    cmd.Parameters.AddWithValue("@username", post.Username);
-
                     rowsAffected = cmd.ExecuteNonQuery();
                 }
             }

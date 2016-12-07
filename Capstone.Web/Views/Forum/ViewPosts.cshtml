@@ -14,10 +14,10 @@
 
 @Html.Partial("_PartialPostsView", Model);
 
-@using (Html.BeginForm("SubmitPost", "Forum", FormMethod.Post))
+@using (Html.BeginForm("AddAPost", "Forum", FormMethod.Post))
 {
     <div>
-        @Html.Label("postBody", "Title")
+        @Html.Label("postBody", "Submit your post here!")
         @Html.TextAreaFor(p => p.NewPost.PostBody, new { style = "width:60%;" })
     </div>
     <div>
@@ -28,6 +28,7 @@
     </div>
     <div>
         @Html.HiddenFor(p => p.NewPost.ThreadID)
+        @Html.HiddenFor(p => p.SelectedThread.ThreadID)
     </div>
     <button>Submit!</button>
 }
