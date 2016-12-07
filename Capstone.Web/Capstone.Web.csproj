@@ -214,7 +214,6 @@
     <Content Include="Views\Forum\ViewThreads.cshtml" />
     <Content Include="Views\Forum\SubmitThread.cshtml" />
     <Content Include="Views\Forum\ViewPosts.cshtml" />
-    <Content Include="Views\Forum\SubmitPost.cshtml" />
     <Content Include="Views\Shared\_PartialNewAuthorList.cshtml" />
     <Content Include="Views\Forum\ViewCategories.cshtml" />
     <Content Include="Views\Shared\_PartialPostsView.cshtml" />
