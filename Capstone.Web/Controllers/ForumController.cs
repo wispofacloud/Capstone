@@ -39,7 +39,7 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ViewThreads(int categoryID)
         {
-            //fix so we can get username
+
             List<ThreadModel> AllThreads = new List<ThreadModel>();
             AllThreads = forumDAL.GetThreadsByCategory(categoryID);            
             return View("ViewThreads", AllThreads);
@@ -94,7 +94,7 @@ namespace Capstone.Web.Controllers
             model.NewPost.Username = user.Username;
             model.NewPost.PostBody = "";
             
-            return View("ViewPosts", model);
+            return RedirectToAction("ViewPosts", model);
         }
 
     }
