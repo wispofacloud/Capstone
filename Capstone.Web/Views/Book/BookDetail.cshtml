@@ -7,23 +7,24 @@
 
 
 <div id="container">
+    <div class="eachBook">
+        @if (string.IsNullOrEmpty(Model.CurrentBook.ImageLink))
+        {
+            <img class="detailImg" src="@Url.Content("~/Content/echobookslogo.png")" />
+        }
+        else
+        {
+            <img class="detailImg" src="@Model.CurrentBook.ImageLink" />
+        }
 
-    @if (string.IsNullOrEmpty(Model.CurrentBook.ImageLink))
-    {
-        <img class="detailImg" src="@Url.Content("~/Content/echobookslogo.png")" />
-    }
-    else
-    {
-        <img class="detailImg" src="@Model.CurrentBook.ImageLink" />
-    }
-    
 
-    <div class="detailDiv">
-        <h2 class="detailTitle">@Model.CurrentBook.Title</h2>
-        <h3 class="detailAuthor">@Model.CurrentBook.Author</h3>
-        <h4 class="detailTagLine">Join @Model.CurrentBook.MainCharacter in @Model.CurrentBook.Setting for a @Model.CurrentBook.Genre adventure!</h4>
-        <h4 class="detailDescription">@Model.CurrentBook.Description</h4>
+        <div class="detailDiv">
+            <h2 class="detailTitle">@Model.CurrentBook.Title</h2>
+            <h3 class="detailAuthor">@Model.CurrentBook.Author</h3>
+            <h4 class="detailTagLine">Join @Model.CurrentBook.MainCharacter in @Model.CurrentBook.Setting for a @Model.CurrentBook.Genre adventure!</h4>
+            <h4 class="detailDescription">@Model.CurrentBook.Description</h4>
 
+        </div>
     </div>
     <div id="addToList">
         @if (!Model.IsBookInList && Model.CurrentUser != null)
