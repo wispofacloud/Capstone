@@ -39,8 +39,9 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ViewThreads(int categoryID)
         {
+            //fix so we can get username
             List<ThreadModel> AllThreads = new List<ThreadModel>();
-            AllThreads = forumDAL.GetThreadsByCategory(categoryID);
+            AllThreads = forumDAL.GetThreadsByCategory(categoryID);            
             return View("ViewThreads", AllThreads);
         }
 

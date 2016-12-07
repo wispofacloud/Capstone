@@ -5,7 +5,6 @@
 }
 
 <h2>Echo Books Forum</h2>
-@* needs logic so only users can do this or authorization filters*@
 
     <button class="addThreadBtn">@Html.ActionLink("Create a new thread", "AddAThread", "Forum", new { categoryID = Convert.ToInt32(Request.QueryString["categoryID"]) }, null)</button>
 
@@ -16,7 +15,7 @@
             <td class="eachThread">@Html.ActionLink(Model[i].ThreadName, "ViewPosts", "Forum", new { threadID = Model[i].ThreadID }, null)</td>
 
 
-            <td><span class="italic">posted by:</span>@Model[i].UserID <span class="italic">on </span>@Model[i].ThreadDate</td>
+            <td><span class="italic">posted by:</span>@Model[i].Username <span class="italic">on </span>@Model[i].ThreadDate</td>
 
         </tr>
     }
