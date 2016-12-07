@@ -43,7 +43,7 @@ header {
 }
 
 #menuLinks {
-    color: #00568c;
+    //color: #00568c;
     font-weight: bold;
 }
 
@@ -187,7 +187,7 @@ li {
     padding-top: 1%;
 }
 
-#reviewSubmit {
+.btn-warning{
     margin-top: 4%;
 }
 
@@ -201,7 +201,10 @@ li {
     display: block;
     padding-top: 3%;
     font-weight: bold;
-    color: darkred;
+    color: #00568c;
+}
+.field-validation-error{
+    color:red;
 }
 
 #thanksImg {
@@ -296,3 +299,4 @@ li {
     margin-bottom: 5%;
     margin-top: 1%;
 }
+
