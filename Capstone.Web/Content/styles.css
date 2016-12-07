@@ -233,7 +233,17 @@ li {
     color: darkred;
     font-size: 1.2em;
 }
-
+.checkmark{
+    position:relative;
+    right: 3em;
+    top: -7em;
+    width:3em;
+    height:auto;
+}
+.readingListCaption{
+    display:inline-block;
+    width:33%;
+}
 .readingListTitle {
     font-weight: 600;
     font-size: 1.05em;
@@ -258,7 +268,6 @@ table > tbody > tr > td {
 }
 .readingListDesc {
 
-    padding: 5%;
 
 }
 

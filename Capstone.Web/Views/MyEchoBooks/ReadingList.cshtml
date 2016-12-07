@@ -4,46 +4,85 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="echoBooks">My Echo Books Reading List</h2>
 
-<h3 class="echoBooks">Welcome, @Model.CurrentUser.Username</h3>
+<body>
+    <h2 class="echoBooks">My Echo Books Reading List</h2>
+    <h4 class="echoBooks">Welcome, @Model.CurrentUser.Username</h4>
+    <div class="container">
 
-
-
-    <table class="table table-striped">
-
-    <tbody>
         @foreach (var book in Model.ReadingList)
-        {
-            <tr >
-                <td>
+            {
+            <div class="col-md-4">
+                <div>
                     @if (string.IsNullOrEmpty(book.ImageLink))
-                {
-                        <img class="img-responsive" src="@Url.Content("~/Content/echobookslogo.png")" />
+                    {
+                        <img src="@Url.Content("~/Content/echobookslogo.png")" />
                     }
                     else
                     {
-                        <img class="img-responsive" src="@book.ImageLink"/>
+                        <img src="@book.ImageLink" />
                     }
-                </td>
 
-                <td>
-                    <p class="readingListDesc"><span class="readingListTitle">@book.Title</span><span class="readingListAuthor"> by @book.Author</span></p>
-                </td>
-                <td>
                     @if (book.HasRead)
-                {
-                        <p><span class="glyphicon glyphicon-ok"></span></p>
+                    {
+                        <img class="checkmark" src="@Url.Content("~/Content/check-mark.png")" alt="Checkmark" />
 
                     }
-                    else
-                    {       
-                        <a href="@Url.Action("ChangeToRead", "MyEchoBooks", new { bookID = book.BookID })" class="btn btn-warning">Mark as Read&nbsp;<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></a>
+
+                </div>
+                <p class="readingListTitle">@Html.ActionLink(@book.Title, "BookDetail", "Book", new { bookID = book.BookID }, null)</p>
+                <p class="readingListAuthor"> by @book.Author</p>
+
+                <div>
+                    @if (!book.HasRead)
+
+                    {
+                        <a href="@Url.Action("ChangeToRead", "MyEchoBooks", new { bookID = book.BookID })" class="btn btn-warning">Mark Read&nbsp;<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></a>
 
                     }
-                </td>
-
-            </tr>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+        
+    </div>
+
+</body>
+
+
+@*<table class="table table-striped">
+
+        <tbody>
+            @foreach (var book in Model.ReadingList)
+            {
+                <tr >
+                    <td>
+                        @if (string.IsNullOrEmpty(book.ImageLink))
+                    {
+                            <img class="img-responsive" src="@Url.Content("~/Content/echobookslogo.png")" />
+                        }
+                        else
+                        {
+                            <img class="img-responsive" src="@book.ImageLink"/>
+                        }
+                    </td>
+
+                    <td>
+                        <p class="readingListDesc"><span class="readingListTitle">@book.Title</span><span class="readingListAuthor"> by @book.Author</span></p>
+                    </td>
+                    <td>
+                        @if (book.HasRead)
+                    {
+                            <p><span class="glyphicon glyphicon-ok"></span></p>
+
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("ChangeToRead", "MyEchoBooks", new { bookID = book.BookID })" class="btn btn-warning">Mark as Read&nbsp;<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></a>
+
+                        }
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>*@
