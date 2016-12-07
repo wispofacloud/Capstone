@@ -28,8 +28,18 @@ header {
 
 #indexImg {
     margin: auto;
-    width: 40%;
+    width: 60%;
     height: auto;
+}
+
+#newAuthorList {
+    margin-top: 3%;
+    padding: 3%;
+    outline: 5px solid #00568c;
+    outline-offset: -35px;
+    margin-left:0%;
+    margin-right:15%;
+    margin-bottom:3%
 }
 
 #menuLinks {
@@ -247,7 +257,7 @@ li {
 
 .threadHead {
     background-color: #4690b0;
-    color:white;
+    color: white;
 }
 
 .threadUser {
@@ -270,19 +280,19 @@ li {
 }
 
 .postBody {
-   
 }
 
 .eachThread {
-    
-    margin-left:10%;
+    margin-left: 10%;
 }
-.categoryLinks{
-    text-align:left;
-    margin-left:20%;
-    font-size:2em;
+
+.categoryLinks {
+    text-align: left;
+    margin-left: 20%;
+    font-size: 2em;
 }
-.addThreadBtn{
-    margin-bottom:5%;
-    margin-top:1%;
+
+.addThreadBtn {
+    margin-bottom: 5%;
+    margin-top: 1%;
 }
