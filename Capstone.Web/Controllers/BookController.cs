@@ -95,6 +95,10 @@ namespace Capstone.Web.Controllers
             {
                 newBook.MainCharacter = "";
             }
+            if(newBook.ImageLink == null)
+            {
+                newBook.ImageLink = "";
+            }
             booksDAL.AddNewBook(newBook);
             return RedirectToAction("ThankYou");
 

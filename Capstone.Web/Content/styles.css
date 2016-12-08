@@ -351,4 +351,23 @@ table > tbody > tr > td {
     margin-bottom: 5%;
     margin-top: 1%;
 }
+#viewCategories{
+    border:2px black solid;
+        width:70%;
+        background-color: white;
+        margin:auto;
+        margin-top:35px;
+        padding:15px;
+        box-shadow:gray 10px 10px;
+}
+#forumCategoriesTitle{
+    background-color: #53abd0;
+    width:100%;
+    color: white;
+    padding:2%;
+    
+}
+#viewCategories > ul{
+    padding-top: 2em;
+}
 
