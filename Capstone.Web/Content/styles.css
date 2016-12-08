@@ -267,11 +267,13 @@ vertical-align:top;
 }
 
 .readingListImg {
-    width: 25%;
-    margin-left: 20%;
-    margin-bottom: 5%;
+    width: 70%;
+    height:auto;        
     display: inline-block;
     clear: both;
+}
+.readingListImageContainer{
+    background-color:#00568c; 
 }
 
 table > tbody > tr > td {

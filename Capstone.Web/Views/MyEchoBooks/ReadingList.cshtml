@@ -13,14 +13,14 @@
         @foreach (var book in Model.ReadingList)
             {
             <div class="col-md-3 readingListDesc">
-                <div>
+                <div class="readingListImgContainer">
                     @if (string.IsNullOrEmpty(book.ImageLink))
                     {
-                        <img src="@Url.Content("~/Content/echobookslogo.png")" />
+                        <img class="readingListImg"src="@Url.Content("~/Content/echobookslogo.png")" />
                     }
                     else
                     {
-                        <img src="@book.ImageLink" />
+                        <img class="readingListImg"src="@book.ImageLink" />
                     }
 
                     @if (book.HasRead)
