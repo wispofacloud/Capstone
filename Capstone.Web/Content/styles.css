@@ -266,6 +266,7 @@ li {
     top:0;
 }
 
+
 .readingListCaption {
     display: inline-block;
     width: 33%;
@@ -294,16 +295,7 @@ li {
     clear: both;
 }
 
-.readingListImageContainer {
-    background-color: #00568c;
-    height:22em; 
-    width: auto;
-    margin:auto;
-    display: inline-block;
-    clear: both;
 
-
-}
 
 table > tbody > tr > td {
     vertical-align: middle;
@@ -316,8 +308,7 @@ table > tbody > tr > td {
     margin: 2%;   
     padding: 0;
     min-height:32em;
-
-
+    box-shadow: gray 10px 10px;
 }
 .readingListButton{
     vertical-align:bottom;
