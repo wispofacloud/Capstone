@@ -121,6 +121,7 @@ p {
     outline-offset: -35px;
     background-color: white;
     width:50%;
+    margin-top:5%;
 }
 
 li {
@@ -284,18 +285,12 @@ li {
 
 .readingListImgContainer{
     background-color:#00568c; 
-
-
 }
-
-.readingListImg {
-    
+.readingListImg {    
     height: 300px;
     display: inline-block;
     clear: both;
 }
-
-
 
 table > tbody > tr > td {
     vertical-align: middle;
@@ -336,7 +331,7 @@ table > tbody > tr > td {
 .postUser {
     display: inline-block;
     text-align: left;
-    width: 15%;
+  
 }
 
 .postBody {
@@ -356,3 +351,4 @@ table > tbody > tr > td {
     margin-bottom: 5%;
     margin-top: 1%;
 }
+
