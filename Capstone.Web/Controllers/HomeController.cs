@@ -22,11 +22,17 @@ namespace Capstone.Web.Controllers
             return View("Index");
         }
 
-        //Get: Get New Author List
+        //Get: Get Partial New Author List
         public ActionResult PartialNewAuthorList()
         {
             List<String> model = booksDAL.GetNewAuthorList();
             return PartialView("_PartialNewAuthorList", model);
+        }
+        //Get: Get New Author List
+        public ActionResult NewAuthorList()
+        {
+            List<String> model = booksDAL.GetNewAuthorList();
+            return View("NewAuthors", model);
         }
     }
 }

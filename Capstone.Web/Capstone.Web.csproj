@@ -218,6 +218,7 @@
     <Content Include="Views\Shared\_PartialNewAuthorList.cshtml" />
     <Content Include="Views\Forum\ViewCategories.cshtml" />
     <Content Include="Views\Shared\_PartialPostsView.cshtml" />
+    <Content Include="Views\Home\NewAuthors.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

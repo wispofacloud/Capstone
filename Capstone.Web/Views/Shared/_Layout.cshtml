@@ -22,7 +22,8 @@
         
         <ul class="nav navbar-nav">
             <li>@Html.ActionLink("Home", "Index", "Home")</li>
-            <li>@Html.ActionLink("New Book List", "NewBookList", "Book")</li>
+            <li>@Html.ActionLink("New Books", "NewBookList", "Book")</li>
+            <li>@Html.ActionLink("New Authors","NewAuthorList","Home")</li>
             @Html.Action("GetAuthenticatedUser", "Users")
             
 

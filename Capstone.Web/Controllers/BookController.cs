@@ -112,8 +112,6 @@ namespace Capstone.Web.Controllers
             return View("NewBookList", model);
         }
 
-       
-
         //GET: Get Submit Book Review View
         public ActionResult SubmitBookReview(int id)
         {

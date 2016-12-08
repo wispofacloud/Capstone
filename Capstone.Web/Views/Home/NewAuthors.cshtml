@@ -1,13 +1,13 @@
-﻿@model List<String>
-
+﻿@model List<string>
 @{
-    var authorLimit = Math.Min(10, Model.Count);
+    ViewBag.Title = "NewAuthors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="newAuthorList">
+<div id="completeNewAuthorList">
     <h2>Newly Added Authors</h2>
 
-    @for (int i = 0; i < authorLimit; i++)
+    @for (int i = 0; i < Model.Count; i++)
     {
 
 
