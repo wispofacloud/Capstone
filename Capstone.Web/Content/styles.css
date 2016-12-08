@@ -247,8 +247,8 @@ vertical-align:top;
 }
 .checkmark{
     position:relative;
-    right: 3em;
-    top: -7em;
+    right: -10em;
+    top: -17em;
     width:3em;
     height:auto;
 }
@@ -279,7 +279,10 @@ table > tbody > tr > td {
      
 }
 .readingListDesc {
-
+    background-color: white;
+    border: 2px solid black;
+    margin: 2%;
+    
 
 }
 
