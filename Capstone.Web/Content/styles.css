@@ -258,12 +258,12 @@ li {
     font-size: 1.2em;
 }
 
-.checkmark {
-    position: relative;
-    right: -10em;
-    top: -17em;
-    width: 3em;
-    height: auto;
+.checkmark{
+    position:absolute;
+    right:0;    
+    width:3em;
+    height:auto;
+    top:0;
 }
 
 .readingListCaption {
@@ -274,21 +274,35 @@ li {
 .readingListTitle {
     font-weight: 600;
     font-size: 1.05em;
+    padding-top:2%;
 }
 
 .readingListAuthor {
     font-style: italic;
 }
 
+.readingListImgContainer{
+    background-color:#00568c; 
+
+
+}
+
 .readingListImg {
-    width: 70%;
-    height: auto;
+    
+    height: 300px;
     display: inline-block;
     clear: both;
 }
 
 .readingListImageContainer {
     background-color: #00568c;
+    height:22em; 
+    width: auto;
+    margin:auto;
+    display: inline-block;
+    clear: both;
+
+
 }
 
 table > tbody > tr > td {
@@ -296,9 +310,18 @@ table > tbody > tr > td {
 }
 
 .readingListDesc {
+
     background-color: white;
-    border: 2px solid black;
-    margin: 2%;
+    border: 2px solid black;  
+    margin: 2%;   
+    padding: 0;
+    min-height:32em;
+
+
+}
+.readingListButton{
+    vertical-align:bottom;
+    padding-bottom:5%;
 }
 
 .threadHead {

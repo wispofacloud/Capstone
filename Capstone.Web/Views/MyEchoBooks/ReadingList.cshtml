@@ -9,7 +9,7 @@
     <h2 class="echoBooks">My Echo Books Reading List</h2>
     <h4 class="echoBooks">Welcome, @Model.CurrentUser.Username</h4>
     <div class="container">
-
+       
         @foreach (var book in Model.ReadingList)
             {
             <div class="col-md-3 readingListDesc">
@@ -33,7 +33,7 @@
                 <p class="readingListTitle">@Html.ActionLink(@book.Title, "BookDetail", "Book", new { bookID = book.BookID }, null)</p>
                 <p class="readingListAuthor"> by @book.Author</p>
 
-                <div>
+                <div class="readingListButton">
                     @if (!book.HasRead)
 
                     {
@@ -43,7 +43,7 @@
                 </div>
             </div>
         }
-        
+      
     </div>
 
 </body>
