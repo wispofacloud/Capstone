@@ -104,5 +104,14 @@ alter table posts add foreign key (threadID) references threads(threadID);
 	('The Face in the Window', 'Winston, Jessica', 'Shirley Anne', 'Chicago', 'Thriller', '11-12-2016', 'Lorem ipsum dolor sit amet, et his fuisset perpetua dignissim, ad justo elitr oporteat pri. Quo minim graece ad, scribentur disputationi eu qui. Ad vim integre imperdiet, in ubique torquatos nec. Democritum efficiendi vim in, pro munere voluptatum an. Sed ei dolorum indoctum, est sonet vivendum cu.', 'https://images-na.ssl-images-amazon.com/images/I/51PxQCRCx0L._AC_US240_FMwebp_QL65_.jpg'),
 	('The Cat with No Dinner', 'Somerville, Amelia', 'Detective Brandon', 'Cleveland, OH', 'Pet Mystery', '11-20-2016', 'Lorem ipsum dolor sit amet, et his fuisset perpetua dignissim, ad justo elitr oporteat pri. Quo minim graece ad, scribentur disputationi eu qui. Ad vim integre imperdiet, in ubique torquatos nec. Democritum efficiendi vim in, pro munere voluptatum an. Sed ei dolorum indoctum, est sonet vivendum cu.', 'https://images-na.ssl-images-amazon.com/images/I/51PxQCRCx0L._AC_US240_FMwebp_QL65_.jpg'); 
 
-	Delete From books;
-	Drop table books;
+update categories set categoryName = 'What would you recommend for...?' where categoryID = 1;
+update categories set categoryName = 'Book Reviews' where categoryID = 2;
+update categories set categoryName = 'Writer''s Corner' where categoryID = 3;
+update categories set categoryName = 'What are you reading now?' where categoryID = 4;
+insert into categories values('Off-Topic') 
+
+delete from readingList where bookID = 193;
+delete from books where title = 'All the Deadly Beloved'
+
+delete from posts;
+delete from threads;

@@ -14,10 +14,10 @@ namespace Capstone.Web.Models
 
         private Dictionary<string, string> Choices = new Dictionary<string, string>()
         {
-            { "Author", "SELECT Top 50 * FROM books WHERE author like '%{1}%'"},
-            { "Title","SELECT Top 50 * FROM books WHERE title like '%{1}%'"},
-            { "Setting","SELECT Top 50* FROM books WHERE setting like '%{1}%'"},
-            {"Character", "SELECT Top 50 * FROM books WHERE mainCharacter like '%{1}%'"}
+            { "Author", "SELECT Top 50 * FROM books WHERE author like '%{1}%' order by author"},
+            { "Title","SELECT Top 50 * FROM books WHERE title like '%{1}%' order by author"},
+            { "Setting","SELECT Top 50* FROM books WHERE setting like '%{1}%' order by author"},
+            {"Character", "SELECT Top 50 * FROM books WHERE mainCharacter like '%{1}%' order by author"}
         };
 
         public List<BookModel> GetBooks(string value, string type)
