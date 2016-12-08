@@ -14,7 +14,7 @@
             <td class="eachThread">@Html.ActionLink(Model[i].ThreadName, "ViewPosts", "Forum", new { threadID = Model[i].ThreadID }, null)</td>
 
 
-            <td><span class="italic">posted by: </span>@Model[i].Username<span class="italic"> on </span>@Model[i].ThreadDate</td>
+            <td class="postedBy"><span class="italic">posted by: </span>@Model[i].Username<span class="italic"> on </span>@Model[i].ThreadDate</td>
             @Html.Hidden(Model[i].UserID.ToString())
         </tr>
     }
