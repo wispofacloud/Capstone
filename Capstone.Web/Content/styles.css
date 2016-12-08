@@ -4,6 +4,9 @@
     padding-right: 2%;
     /*padding-top: 1%;*/
 }
+ .navbar-default .navbar-nav > li > a {
+    color:#fff;
+}
 
 header {
     display: block;
