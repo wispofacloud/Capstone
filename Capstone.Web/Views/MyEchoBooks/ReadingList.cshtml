@@ -33,7 +33,7 @@
                 <p class="readingListTitle">@Html.ActionLink(@book.Title, "BookDetail", "Book", new { bookID = book.BookID }, null)</p>
                 <p class="readingListAuthor"> by @book.Author</p>
 
-                <div>
+                <div class="readingListButton">
                     @if (!book.HasRead)
 
                     {
