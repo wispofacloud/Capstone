@@ -32,7 +32,7 @@
 
                 </div>
                 <p class="readingListTitle">@Html.ActionLink(@Model.ReadingList[i].Title, "BookDetail", "Book", new { bookID = Model.ReadingList[i].BookID }, null)</p>
-                <p class="readingListAuthor"> by Model.ReadingList[i].Author</p>
+                <p class="readingListAuthor"> by @Model.ReadingList[i].Author</p>
 
                 <div class="readingListButton">
                     @if (!Model.ReadingList[i].HasRead)
