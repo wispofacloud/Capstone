@@ -113,5 +113,11 @@ insert into categories values('Off-Topic')
 delete from readingList where bookID = 193;
 delete from books where title = 'All the Deadly Beloved'
 
+drop table posts, threads, categories, readingList, reviews, users, books;
 delete from posts;
 delete from threads;
+delete from categories;
+delete from readingList;
+delete from reviews;
+delete from users;
+delete from books;
